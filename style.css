@@ -1,0 +1,272 @@
+:root {
+  --color-black: #000000;
+  --color-gold: #C39940;
+  --color-gold-dark: #b08730;
+  --color-text: #ADADAD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-black);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .logo, .footer-logo {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  background-color: var(--color-black);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+body.home-page .navbar {
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  border-bottom: none;
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  color: var(--color-text);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Darken the image so text pops */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  padding: 0 2rem;
+  margin-top: 5rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--color-gold-dark);
+}
+
+/* About Section */
+.about {
+  padding: 6rem 2rem;
+  text-align: center;
+  background-color: var(--color-black);
+}
+
+.about-text {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+
+/* Collection Section */
+.collection {
+  padding: 2rem 2rem 6rem;
+  background-color: var(--color-black);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  text-align: center;
+}
+
+.card-image {
+  height: 250px;
+  background-color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.8rem;
+  color: var(--color-gold);
+  letter-spacing: 2px;
+}
+
+/* Map Section */
+.map-section {
+  width: 100%;
+  background: var(--color-black);
+}
+
+/* Footer */
+footer {
+  padding: 4rem 4rem 2rem;
+  background-color: var(--color-black);
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+
+footer h2 {
+  font-size: 2.2rem;
+  color: var(--color-gold);
+  margin-bottom: 3rem;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  text-align: left;
+}
+
+.contact-info p, .payment-info p {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.payment-info {
+  text-align: right;
+}
+
+.payment-icons {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.payment-icons span {
+  margin: 0 0.5rem;
+}
+
+.disclaimer {
+  color: var(--color-gold-dark);
+  font-size: 0.8rem;
+  margin-top: 2rem;
+}
+
+/* Split Layout for Historia y Produccion */
+.split-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.split-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.split-section .text-content {
+  flex: 1;
+}
+
+.split-section .text-content h2 {
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  margin-bottom: 2rem;
+}
+
+.split-section .text-content p {
+  font-size: 1.1rem;
+  color: #aaaaaa;
+  margin-bottom: 1.5rem;
+}
+
+.split-section .image-content {
+  flex: 1;
+}
+
+/* Button Styles */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-gold-dark);
+  transform: translateY(-2px);
+}

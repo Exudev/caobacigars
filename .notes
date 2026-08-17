@@ -1,0 +1,22 @@
+# Development Notes - Caoba Cigars (Static Site Migration)
+
+## Session Summary
+- **Architecture Pivot**: Moved away from the legacy WordPress (PHP/MySQL) architecture to a modern, static **Vite + Vanilla JS/CSS** stack for better performance and easier deployment on platforms like Railway.
+- **Directory**: The project is located at `/Users/exudev/Dev/caoba_v2/`.
+
+## Key Achievements
+1. **Asset Recovery**: Successfully scraped and copied the original image assets from the local WordPress database (`/wp-content/uploads/`) and placed them correctly in the `/public/images/` folder.
+2. **Global Styling (`style.css`)**: 
+   - Rebuilt the layout to match the original branding (black backgrounds, premium gold typography).
+   - Standardized the navbar structure across pages (absolute and transparent on the Home Page, solid and relative on subpages).
+3. **Dynamic Home Page Slider (`main.js`)**:
+   - Replaced the static hero section with a dynamic image carousel using Vanilla JS.
+   - Identified and used the original factory production photos (`DSC...` files) directly from the old slider metadata.
+4. **Automated Product Page Generation**:
+   - Instead of a single flat list, we recreated the exact structure of the original site where each of the 11 cigar lines has its own dedicated page.
+   - Created a Node script (`generate_pages.cjs`) to automatically read the basic descriptions and scaffold 11 new directories (e.g. `/caoba-oro/`, `/supreme/`, etc.) with the correct image, description, and an empty specifications table ready to mirror the live site.
+   - Wired up the "Ver Más" buttons on the `/lineas/` page to accurately link to these dedicated subpages.
+
+## Next Steps (Tomorrow)
+- **Git Initialization**: Run `git init`, add, and commit the current state.
+- **Deployment**: Push the repository to GitHub and link it to **Railway** for live hosting.

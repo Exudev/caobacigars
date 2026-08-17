@@ -1,0 +1,25 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Custom scripts generated during dev
+parse_live.py
+extract_urls.py
+parse_layout.py
+live_oro.html
+live_lineas.html
+live_home.html
+live_oro_tree.txt
+live_lineas_tree.txt
+live_home_tree.txt
+parsed.txt
