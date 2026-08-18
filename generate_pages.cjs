@@ -6,19 +6,20 @@ const lineasHtml = fs.readFileSync(
   "utf8",
 );
 
-// Use regex to extract cards (updated for h2 and new button location)
+// Updated regex to handle Prettier formatting
 const regex =
-  /<div class="card">[\s\S]*?<img src="\/images\/([^"]+)" alt="([^"]+)"[\s\S]*?<h2>([^<]+)<\/h2>[\s\S]*?<p>([^<]+)<\/p>[\s\S]*?<\/div>/g;
+  /<div class="card">[\s\S]*?src="\/images\/([^"]+)"[\s\S]*?alt="([^"]+)"[\s\S]*?<h2>([\s\S]*?)<\/h2>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/g;
 let match;
 const cigars = [];
 
 while ((match = regex.exec(lineasHtml)) !== null) {
+  const title = match[3].trim();
   cigars.push({
-    img: match[1],
-    alt: match[2],
-    title: match[3],
-    desc: match[4],
-    slug: match[3].toLowerCase().replace(/\s+/g, "-"),
+    img: match[1].trim(),
+    alt: match[2].trim(),
+    title: title,
+    desc: match[4].trim(),
+    slug: title.toLowerCase().replace(/\s+/g, "-"),
   });
 }
 
@@ -36,8 +37,7 @@ cigars.forEach((cigar) => {
     fs.mkdirSync(dir, { recursive: true });
   }
 
-  const html = `
-<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -58,8 +58,6 @@ cigars.forEach((cigar) => {
         <a href="/lineas/">LÍNEAS DE CIGARROS</a>
       </nav>
     </header>
-
-    
 
     <section class="split-section" style="padding-top: 2rem;">
       <div class="text-content">
@@ -107,8 +105,7 @@ cigars.forEach((cigar) => {
       </div>
     </footer>
 </body>
-</html>
-`;
+</html>`;
 
   fs.writeFileSync(path.join(dir, "index.html"), html);
   console.log(`Created: ${dir}/index.html`);
