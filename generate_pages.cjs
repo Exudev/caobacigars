@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const lineasHtml = fs.readFileSync(path.join(__dirname, 'lineas', 'index.html'), 'utf8');
+const lineasHtml = fs.readFileSync(path.join(__dirname, 'src', 'lineas', 'index.html'), 'utf8');
 
-// Use regex to extract cards
-const regex = /<div class="card">[\s\S]*?<img src="\/images\/([^"]+)" alt="([^"]+)"[\s\S]*?<h3>([^<]+)<\/h3>[\s\S]*?<p>([^<]+)<\/p>[\s\S]*?<\/div>/g;
+// Use regex to extract cards (updated for h2 and new button location)
+const regex = /<div class="card">[\s\S]*?<img src="\/images\/([^"]+)" alt="([^"]+)"[\s\S]*?<h2>([^<]+)<\/h2>[\s\S]*?<p>([^<]+)<\/p>[\s\S]*?<\/div>/g;
 let match;
 const cigars = [];
 
@@ -13,33 +13,49 @@ while ((match = regex.exec(lineasHtml)) !== null) {
     img: match[1],
     alt: match[2],
     title: match[3],
-    desc: match[4]
+    desc: match[4],
+    slug: match[3].toLowerCase().replace(/\s+/g, '-')
   });
 }
 
-const template = (cigar) => `<!DOCTYPE html>
+// Special case for 'toa' (töa)
+const toaIndex = cigars.findIndex(c => c.title.toLowerCase().includes('töa'));
+if (toaIndex !== -1) {
+  cigars[toaIndex].slug = 'toa';
+}
+
+console.log(`Found ${cigars.length} cigars.`);
+
+cigars.forEach(cigar => {
+  const dir = `./src/${cigar.slug}`;
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  const html = `
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>${cigar.title} | Caoba Cigars</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
-    <!-- Navbar -->
-    <header class="navbar">
-      <div class="logo-container">
-        <img src="/images/logo-caoba.png" alt="Caoba Logo" style="height: 100px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${cigar.title} - Caoba Cigars</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="product-page">
+    <header class="navbar" style="position: fixed; top: 0; background-color: var(--color-black); z-index: 1000;">
+      <div class="logo">
+        <a href="/"><img src="/images/logo-caoba.png" alt="Caoba Cigars Logo"></a>
       </div>
       <nav>
-        <a href="/">INICIO</a>
-        <a href="/historia/">HISTORIA Y PRODUCCIÓN</a>
-        <a href="/lineas/">LÍNEAS DE CIGARROS</a>
+        <ul class="nav-links">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/historia/">Historia</a></li>
+          <li><a href="/lineas/">Líneas de Cigarros</a></li>
+        </ul>
       </nav>
     </header>
 
-    <div style="margin-top: 150px;"></div> <!-- Spacer for fixed navbar -->
+    <div style="margin-top: 150px;"></div>
 
     <section class="split-section" style="padding-top: 2rem;">
       <div class="text-content">
@@ -67,40 +83,29 @@ const template = (cigar) => `<!DOCTYPE html>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact" style="margin-top: 4rem;">
       <div class="footer-content">
         <div class="footer-logo"><img src="/images/logo-caoba.png" alt="Caoba Logo" style="height: 60px;"></div>
         <h2>República Dominicana</h2>
         <div class="footer-columns">
           <div class="contact-info">
-            <p>C/ El conde #101 local #9 Centro comercial Colon, Santo Domingo. R.D</p>
-            <p>📞 +1 (809) 685-6425</p>
+            <p>1 (809) 221-5080</p>
+            <p>caobacigars.dr@gmail.com</p>
           </div>
-          <div class="payment-info">
-            <p>Aceptamos pagos con:</p>
-            <div class="payment-icons">
-               <span>PayPal</span> | <span>VISA</span> | <span>MasterCard</span> | <span>AMEX</span>
-            </div>
+          <div class="location-info">
+            <p>Calle Conde 109, Zona Colonial, 10210</p>
+            <p>Santo Domingo, República Dominicana</p>
           </div>
         </div>
       </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Caoba Cigars. Todos los derechos reservados.</p>
+      </div>
     </footer>
-  </body>
-</html>`;
+</body>
+</html>
+`;
 
-cigars.forEach(cigar => {
-  const slug = cigar.title.toLowerCase().replace(/ /g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const dirPath = path.join(__dirname, slug);
-  if (!fs.existsSync(dirPath)) {
-    fs.mkdirSync(dirPath);
-  }
-  fs.writeFileSync(path.join(dirPath, 'index.html'), template(cigar));
-  console.log(`Created: /${slug}/index.html`);
-  
-  // Update lineas/index.html to include Ver Mas button
-  lineasHtmlUpdated = fs.readFileSync(path.join(__dirname, 'lineas', 'index.html'), 'utf8');
-  const replaceStr = `<h3>${cigar.title}</h3>\n          <p>${cigar.desc}</p>`;
-  const newStr = `<h3>${cigar.title}</h3>\n          <p>${cigar.desc}</p>\n          <a href="/${slug}/" class="btn-primary" style="margin-top: 1.5rem; display: inline-block; padding: 0.5rem 1.5rem; font-size: 0.9rem;">Ver Más</a>`;
-  fs.writeFileSync(path.join(__dirname, 'lineas', 'index.html'), lineasHtmlUpdated.replace(replaceStr, newStr));
+  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  console.log(`Created: ${dir}/index.html`);
 });
