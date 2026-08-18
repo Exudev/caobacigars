@@ -1,10 +1,14 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const lineasHtml = fs.readFileSync(path.join(__dirname, 'src', 'lineas', 'index.html'), 'utf8');
+const lineasHtml = fs.readFileSync(
+  path.join(__dirname, "src", "lineas", "index.html"),
+  "utf8",
+);
 
 // Use regex to extract cards (updated for h2 and new button location)
-const regex = /<div class="card">[\s\S]*?<img src="\/images\/([^"]+)" alt="([^"]+)"[\s\S]*?<h2>([^<]+)<\/h2>[\s\S]*?<p>([^<]+)<\/p>[\s\S]*?<\/div>/g;
+const regex =
+  /<div class="card">[\s\S]*?<img src="\/images\/([^"]+)" alt="([^"]+)"[\s\S]*?<h2>([^<]+)<\/h2>[\s\S]*?<p>([^<]+)<\/p>[\s\S]*?<\/div>/g;
 let match;
 const cigars = [];
 
@@ -14,19 +18,19 @@ while ((match = regex.exec(lineasHtml)) !== null) {
     alt: match[2],
     title: match[3],
     desc: match[4],
-    slug: match[3].toLowerCase().replace(/\s+/g, '-')
+    slug: match[3].toLowerCase().replace(/\s+/g, "-"),
   });
 }
 
 // Special case for 'toa' (töa)
-const toaIndex = cigars.findIndex(c => c.title.toLowerCase().includes('töa'));
+const toaIndex = cigars.findIndex((c) => c.title.toLowerCase().includes("töa"));
 if (toaIndex !== -1) {
-  cigars[toaIndex].slug = 'toa';
+  cigars[toaIndex].slug = "toa";
 }
 
 console.log(`Found ${cigars.length} cigars.`);
 
-cigars.forEach(cigar => {
+cigars.forEach((cigar) => {
   const dir = `./src/${cigar.slug}`;
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -105,6 +109,6 @@ cigars.forEach(cigar => {
 </html>
 `;
 
-  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  fs.writeFileSync(path.join(dir, "index.html"), html);
   console.log(`Created: ${dir}/index.html`);
 });
