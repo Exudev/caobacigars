@@ -11,25 +11,33 @@
             Potente en boca y deleitando la nariz con su exquisito aroma."
     />
     <title>Origen Dominicano - Caoba Cigars</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="product-page">
     <header class="navbar">
-      <div class="logo">
-        <a href="/"
-          ><img src="/images/logo-caoba.png" alt="Caoba Cigars Logo"
-        /></a>
+      <div class="logo-container">
+        <a href="/">
+          <img
+            src="/images/logo-caoba.png"
+            alt="Caoba Logo"
+            style="height: 100px"
+          />
+        </a>
       </div>
       <nav>
         <a href="/">INICIO</a>
         <a href="/historia/">HISTORIA Y PRODUCCIÓN</a>
-        <a href="/lineas/">LÍNEAS DE CIGARROS</a>
+        <a href="/lineas/" class="active">LÍNEAS DE CIGARROS</a>
       </nav>
     </header>
 
-    <section class="split-section" style="padding-top: 2rem">
+    <section class="split-section" style="padding-top: 3rem">
       <div class="text-content">
-        <h2
+        <h1
           style="
             font-family: &quot;Playfair Display&quot;, serif;
             font-size: 3rem;
@@ -38,13 +46,13 @@
           "
         >
           Origen Dominicano
-        </h2>
+        </h1>
         <p
           style="
             font-size: 1.2rem;
             line-height: 1.8;
             color: var(--color-text);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
           "
         >
           De presencia imponente con capa San Andrés colorada oscura y poderosa
@@ -52,7 +60,7 @@
           y deleitando la nariz con su exquisito aroma.
         </p>
 
-        <h3
+        <h2
           style="
             color: var(--color-gold);
             font-size: 1.5rem;
@@ -60,12 +68,13 @@
           "
         >
           Especificaciones
-        </h3>
+        </h2>
         <table
           style="
             width: 100%;
             border-collapse: collapse;
             color: var(--color-text);
+            margin-bottom: 3rem;
           "
         >
           <tr style="border-bottom: 1px solid #333">
@@ -89,13 +98,25 @@
                 color: var(--color-gold-dark);
               "
             >
+              Elaboración
+            </td>
+            <td style="padding: 1rem 0">Hecho a mano / Handmade</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #333">
+            <td
+              style="
+                padding: 1rem 0;
+                font-weight: 600;
+                color: var(--color-gold-dark);
+              "
+            >
               Categoría
             </td>
             <td style="padding: 1rem 0">Premium</td>
           </tr>
         </table>
 
-        <div style="margin-top: 3rem">
+        <div>
           <a href="/lineas/" class="btn-primary">Volver a la Colección</a>
         </div>
       </div>
@@ -104,15 +125,17 @@
         style="
           display: flex;
           justify-content: center;
-          background-color: transparent;
-          border-radius: 8px;
-          padding: 2rem;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(195, 153, 64, 0.15);
+          border-radius: 12px;
+          padding: 2.5rem;
         "
       >
         <img
           src="/images/origen.png"
           alt="Origen Dominicano"
-          style="max-height: 500px; object-fit: contain"
+          style="max-height: 520px; width: 100%; object-fit: contain"
         />
       </div>
     </section>
@@ -127,19 +150,31 @@
           />
         </div>
         <h2>República Dominicana</h2>
+
         <div class="footer-columns">
           <div class="contact-info">
-            <p>1 (809) 221-5080</p>
-            <p>caobacigars.dr@gmail.com</p>
+            <p>
+              C/ El conde #101 local #9 Centro comercial Colon, Santo Domingo.
+              R.D
+            </p>
+            <p>📞 +1 (809) 685-6425</p>
           </div>
-          <div class="location-info">
-            <p>Calle Conde 109, Zona Colonial, 10210</p>
-            <p>Santo Domingo, República Dominicana</p>
+
+          <div class="payment-info">
+            <p>Aceptamos pagos con:</p>
+            <div class="payment-icons">
+              <span>PayPal</span> | <span>VISA</span> |
+              <span>MasterCard</span> | <span>AMEX</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Caoba Cigars. Todos los derechos reservados.</p>
+
+        <div class="disclaimer">
+          <p>
+            Los impuesto establecidos por el pais de destino son a cargo y
+            responsabilidad exclusiva del comprador.
+          </p>
+        </div>
       </div>
     </footer>
   </body>
