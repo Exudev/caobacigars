@@ -100,7 +100,7 @@ const cigarMetadata = {
 };
 
 const regex =
-  /<div class="card glass-card"[\s\S]*?src="\/images\/([^"]+)"[\s\S]*?alt="([^"]+)"[\s\S]*?<h3>([\s\S]*?)<\/h3>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/g;
+  /<div class="card glass-card"[\s\S]*?src="\.\.\/images\/([^"]+)"[\s\S]*?alt="([^"]+)"[\s\S]*?<h3>([\s\S]*?)<\/h3>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/g;
 let match;
 const cigars = [];
 
@@ -120,7 +120,7 @@ while ((match = regex.exec(lineasHtml)) !== null) {
   });
 }
 
-console.log(`Generating luxury product pages with galleries for ${cigars.length} cigars...`);
+console.log(`Generating relative product pages for ${cigars.length} cigars...`);
 
 cigars.forEach((cigar) => {
   const dir = `./src/${cigar.slug}`;
@@ -154,7 +154,7 @@ cigars.forEach((cigar) => {
       .map(
         (gImg) => `
         <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center; height: 200px;">
-          <img src="/images/${gImg}" alt="${cigar.title} Vitola" style="max-height: 170px; width: auto; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.7));" />
+          <img src="../images/${gImg}" alt="${cigar.title} Vitola" style="max-height: 170px; width: auto; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.7));" />
         </div>`
       )
       .join("");
@@ -176,29 +176,29 @@ cigars.forEach((cigar) => {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico?v=2" />
     <meta
       name="description"
       content="Cigarro ${cigar.title} de Caoba Cigars. ${cigar.desc}"
     />
     <title>${cigar.title} - Caoba Cigars</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body class="product-page">
     <!-- Navbar -->
     <header class="navbar">
       <div class="logo-container">
-        <a href="/">
+        <a href="../">
           <img
-            src="/images/logo-caoba.png"
+            src="../images/logo-caoba.png"
             alt="Caoba Cigars Logo"
           />
         </a>
       </div>
       <nav>
-        <a href="/">INICIO</a>
-        <a href="/historia/">HISTORIA Y PRODUCCIÓN</a>
-        <a href="/lineas/" class="active">LÍNEAS DE CIGARROS</a>
+        <a href="../">INICIO</a>
+        <a href="../historia/">HISTORIA Y PRODUCCIÓN</a>
+        <a href="../lineas/" class="active">LÍNEAS DE CIGARROS</a>
       </nav>
     </header>
 
@@ -262,14 +262,14 @@ cigars.forEach((cigar) => {
         </div>
 
         <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
-          <a href="/lineas/" class="btn-primary">&larr; Volver a la Colección</a>
-          <a href="/#contact" class="btn-outline">Consultar Disponibilidad</a>
+          <a href="../lineas/" class="btn-primary">&larr; Volver a la Colección</a>
+          <a href="../#contact" class="btn-outline">Consultar Disponibilidad</a>
         </div>
       </div>
 
       <div class="image-content glass-card" style="display: flex; justify-content: center; align-items: center; padding: 3rem; background: radial-gradient(circle at center, rgba(197,160,89,0.12) 0%, rgba(18,16,13,0.9) 100%);">
         <img
-          src="/images/${cigar.img}"
+          src="../images/${cigar.img}"
           alt="${cigar.alt}"
           style="max-height: 520px; width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));"
         />
@@ -284,7 +284,7 @@ cigars.forEach((cigar) => {
       <div class="footer-content">
         <div class="footer-logo">
           <img
-            src="/images/logo-caoba.png"
+            src="../images/logo-caoba.png"
             alt="Caoba Cigars Logo"
           />
         </div>
@@ -329,5 +329,5 @@ cigars.forEach((cigar) => {
 </html>`;
 
   fs.writeFileSync(path.join(dir, "index.html"), html);
-  console.log(`Created luxury product page with gallery: ${dir}/index.html`);
+  console.log(`Created product page with relative paths: ${dir}/index.html`);
 });

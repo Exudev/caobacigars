@@ -29,28 +29,10 @@ function getHtmlInputs(dir, base = "", inputs = {}) {
   return inputs;
 }
 
-const basePath =
-  process.env.BASE_PATH || (process.env.GITHUB_ACTIONS ? "/caobacigars/" : "/");
-
-function baseHrefPlugin(base) {
-  return {
-    name: "base-href-plugin",
-    transformIndexHtml(html) {
-      if (base === "/" || !base) return html;
-      const cleanBase = base.replace(/\/$/, "");
-      return html.replace(
-        /href="(\/(?!\/)[^"]*)"/g,
-        (match, path) => `href="${cleanBase}${path}"`
-      );
-    },
-  };
-}
-
 export default defineConfig({
   root: "src",
-  base: basePath,
+  base: "./",
   publicDir: "../public",
-  plugins: [baseHrefPlugin(basePath)],
   build: {
     outDir: "../dist",
     emptyOutDir: true,
