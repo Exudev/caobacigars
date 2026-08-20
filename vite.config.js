@@ -23,17 +23,34 @@ function getHtmlInputs(dir, base = "", inputs = {}) {
       getHtmlInputs(path, base + file + "/", inputs);
     } else if (file.endsWith(".html")) {
       const name = (base + file).replace(/\.html$/, "");
-      // Name is used as output path, so if base is empty and file is index.html, name is 'index'.
       inputs[name === "index" ? "main" : name] = path;
     }
   }
   return inputs;
 }
 
+const basePath =
+  process.env.BASE_PATH || (process.env.GITHUB_ACTIONS ? "/caobacigars/" : "/");
+
+function baseHrefPlugin(base) {
+  return {
+    name: "base-href-plugin",
+    transformIndexHtml(html) {
+      if (base === "/" || !base) return html;
+      const cleanBase = base.replace(/\/$/, "");
+      return html.replace(
+        /href="(\/(?!\/)[^"]*)"/g,
+        (match, path) => `href="${cleanBase}${path}"`
+      );
+    },
+  };
+}
+
 export default defineConfig({
   root: "src",
-  base: process.env.BASE_PATH || "/",
+  base: basePath,
   publicDir: "../public",
+  plugins: [baseHrefPlugin(basePath)],
   build: {
     outDir: "../dist",
     emptyOutDir: true,

@@ -3,38 +3,172 @@ const path = require("path");
 
 const lineasHtml = fs.readFileSync(
   path.join(__dirname, "src", "lineas", "index.html"),
-  "utf8",
+  "utf8"
 );
 
-// Updated regex to handle Prettier formatting
+// Metadata map for flavor notes, strength, wrapper type, and extra gallery images
+const cigarMetadata = {
+  "caoba-oro": {
+    strength: 2,
+    wrapper: "Connecticut",
+    body: "Suave - Medio",
+    notes: ["Crema", "Nuez", "Cedro Noble", "Vainilla"],
+    gallery: [
+      "Caoba-Oro-Robusto1.png",
+      "Caoba-Oro-Robusto2.png",
+      "Caoba-Oro-Torpedos4.png",
+    ],
+  },
+  "caoba-platino": {
+    strength: 3,
+    wrapper: "Connecticut Colorado",
+    body: "Medio",
+    notes: ["Pimiento Suave", "Cacao Rico", "Frutos Secos"],
+    gallery: [
+      "Caoba-Platino-Esplendidos1.png",
+      "Caoba-Platino-Robusto1.png",
+      "Caoba-Platino-Torpedo1.png",
+    ],
+  },
+  "caoba-diamante": {
+    strength: 4,
+    wrapper: "San Andrés (México)",
+    body: "Medio - Fuerte",
+    notes: ["Tierra Fértil", "Chocolate Negro", "Especias Cálidas"],
+    gallery: ["Diamante-1_cpweHj.png", "diamante.png"],
+  },
+  supreme: {
+    strength: 2,
+    wrapper: "Dominicana",
+    body: "Suave",
+    notes: ["Miel Silvestre", "Mantequilla", "Madera Fina"],
+    gallery: ["Caoba-Supreme1.png", "Caoba-Supreme2.png", "Caoba-Supreme4.png"],
+  },
+  magnifico: {
+    strength: 3,
+    wrapper: "San Andrés Nacional",
+    body: "Medio",
+    notes: ["Madera Tostada", "Caramelo Tostado", "Cuero Fino"],
+    gallery: ["Caoba-Magnificos-Toro1.png", "Caoba-Magnificos-Torpedo2.png"],
+  },
+  unique: {
+    strength: 2,
+    wrapper: "Connecticut Premium",
+    body: "Suave - Medio",
+    notes: ["Almendra Tostada", "Vainilla", "Té Dulce"],
+    gallery: ["Caoba-Unique-gold1.png", "Caoba-Unique-Silver1.png"],
+  },
+  quisqueyano: {
+    strength: 3,
+    wrapper: "Yamasá",
+    body: "Medio",
+    notes: ["Tierra Fértil", "Café Tostado", "Corteza de Pan"],
+    gallery: ["Caoba-Quisqueyanos-Esplendidos1.png", "Caoba-Quisqueyanos-Toro2.png"],
+  },
+  "gran-reserva": {
+    strength: 4,
+    wrapper: "Añejada Especial",
+    body: "Fuerte Añejado",
+    notes: ["Roble Antiguo", "Tabaco Curado", "Frutas Secas"],
+    gallery: ["gran-reserva-1_osIOzT.png"],
+  },
+  "origen-dominicano": {
+    strength: 5,
+    wrapper: "San Andrés Oscura",
+    body: "Fuerte Intenso",
+    notes: ["Espresso", "Cacao Puro", "Pimienta Negra"],
+    gallery: [
+      "Caoba-Origen-Dominicano-Don-Juan1.png",
+      "Caoba-Origen-Dominicano-Don-Julio1.png",
+      "Caoba-Origen-Dominicano-Don-Manuel1.png",
+    ],
+  },
+  toa: {
+    strength: 4,
+    wrapper: "Taíno Criollo 100%",
+    body: "Medio - Fuerte",
+    notes: ["Especias Nativas", "Hierbas Silvestres", "Madera Guayacán"],
+    gallery: ["toa-1.png"],
+  },
+  summum: {
+    strength: 5,
+    wrapper: "Cosecha Selección 30 Años",
+    body: "Fuerte Complejo",
+    notes: ["Melasa", "Cedro Añejo", "Chocolate Puro", "Nuez Tostada"],
+    gallery: ["summun-1.png"],
+  },
+};
+
 const regex =
-  /<div class="card">[\s\S]*?src="\/images\/([^"]+)"[\s\S]*?alt="([^"]+)"[\s\S]*?<h2>([\s\S]*?)<\/h2>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/g;
+  /<div class="card glass-card"[\s\S]*?src="\/images\/([^"]+)"[\s\S]*?alt="([^"]+)"[\s\S]*?<h3>([\s\S]*?)<\/h3>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/g;
 let match;
 const cigars = [];
 
 while ((match = regex.exec(lineasHtml)) !== null) {
   const title = match[3].trim();
+  let slug = title.toLowerCase().replace(/\s+/g, "-");
+  if (title.toLowerCase().includes("töa") || title.toLowerCase().includes("toa")) {
+    slug = "toa";
+  }
+
   cigars.push({
     img: match[1].trim(),
     alt: match[2].trim(),
     title: title,
     desc: match[4].trim(),
-    slug: title.toLowerCase().replace(/\s+/g, "-"),
+    slug: slug,
   });
 }
 
-// Special case for 'toa' (töa)
-const toaIndex = cigars.findIndex((c) => c.title.toLowerCase().includes("töa"));
-if (toaIndex !== -1) {
-  cigars[toaIndex].slug = "toa";
-}
-
-console.log(`Found ${cigars.length} cigars.`);
+console.log(`Generating luxury product pages with galleries for ${cigars.length} cigars...`);
 
 cigars.forEach((cigar) => {
   const dir = `./src/${cigar.slug}`;
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
+  }
+
+  const meta = cigarMetadata[cigar.slug] || {
+    strength: 3,
+    wrapper: "Selección Especial",
+    body: "Medio",
+    notes: ["Madera Noble", "Especias", "Cacao"],
+    gallery: [],
+  };
+
+  let dotsHtml = "";
+  for (let i = 1; i <= 5; i++) {
+    dotsHtml += `<span class="strength-dot ${i <= meta.strength ? "filled" : ""}"></span>`;
+  }
+
+  let notesHtml = meta.notes
+    .map(
+      (note) =>
+        `<span style="background: rgba(197,160,89,0.12); border: 1px solid var(--border-gold); color: var(--color-gold-light); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">${note}</span>`
+    )
+    .join(" ");
+
+  let gallerySectionHtml = "";
+  if (meta.gallery && meta.gallery.length > 0) {
+    const galleryItems = meta.gallery
+      .map(
+        (gImg) => `
+        <div class="glass-card" style="padding: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center; height: 200px;">
+          <img src="/images/${gImg}" alt="${cigar.title} Vitola" style="max-height: 170px; width: auto; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.7));" />
+        </div>`
+      )
+      .join("");
+
+    gallerySectionHtml = `
+      <section style="max-width: 1280px; margin: 0 auto; padding: 0 2rem 5rem;">
+        <h3 style="color: var(--color-gold); font-size: 1.25rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; text-align: center;">
+          Vitolas & Presentación de la Línea
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+          ${galleryItems}
+        </div>
+      </section>
+    `;
   }
 
   const html = `<!doctype html>
@@ -45,23 +179,19 @@ cigars.forEach((cigar) => {
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
     <meta
       name="description"
-      content="Descubre el cigarro ${cigar.title} de Caoba Cigars. ${cigar.desc}"
+      content="Cigarro ${cigar.title} de Caoba Cigars. ${cigar.desc}"
     />
     <title>${cigar.title} - Caoba Cigars</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="product-page">
+    <!-- Navbar -->
     <header class="navbar">
       <div class="logo-container">
         <a href="/">
           <img
             src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 100px"
+            alt="Caoba Cigars Logo"
           />
         </a>
       </div>
@@ -72,142 +202,125 @@ cigars.forEach((cigar) => {
       </nav>
     </header>
 
-    <section class="split-section" style="padding-top: 3rem">
+    <!-- Product Detail Section -->
+    <section class="split-section" style="padding-top: 4rem; padding-bottom: 4rem;">
       <div class="text-content">
-        <h1
-          style="
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--color-gold);
-            margin-bottom: 1.5rem;
-          "
-        >
+        <p style="text-transform: uppercase; letter-spacing: 3px; color: var(--color-gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">
+          Línea Exclusiva Caoba Cigars
+        </p>
+        <h1 class="gold-gradient-text" style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.25rem;">
           ${cigar.title}
         </h1>
-        <p
-          style="
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: var(--color-text);
-            margin-bottom: 2.5rem;
-          "
-        >
+
+        <!-- Strength Indicator -->
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem;">
+          <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-text-muted);">
+            Fortaleza: <strong>${meta.body}</strong>
+          </span>
+          <div class="strength-meter" style="margin-bottom: 0;">
+            ${dotsHtml}
+          </div>
+        </div>
+
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--color-text); margin-bottom: 2.5rem; font-weight: 300;">
           ${cigar.desc}
         </p>
 
-        <h2
-          style="
-            color: var(--color-gold);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-          "
-        >
-          Especificaciones
-        </h2>
-        <table
-          style="
-            width: 100%;
-            border-collapse: collapse;
-            color: var(--color-text);
-            margin-bottom: 3rem;
-          "
-        >
-          <tr style="border-bottom: 1px solid #333">
-            <td
-              style="
-                padding: 1rem 0;
-                font-weight: 600;
-                width: 40%;
-                color: var(--color-gold-dark);
-              "
-            >
-              Origen
-            </td>
-            <td style="padding: 1rem 0">República Dominicana</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #333">
-            <td
-              style="
-                padding: 1rem 0;
-                font-weight: 600;
-                color: var(--color-gold-dark);
-              "
-            >
-              Elaboración
-            </td>
-            <td style="padding: 1rem 0">Hecho a mano / Handmade</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #333">
-            <td
-              style="
-                padding: 1rem 0;
-                font-weight: 600;
-                color: var(--color-gold-dark);
-              "
-            >
-              Categoría
-            </td>
-            <td style="padding: 1rem 0">Premium</td>
-          </tr>
-        </table>
+        <!-- Tasting Notes -->
+        <div style="margin-bottom: 2.5rem;">
+          <h3 style="color: var(--color-gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.85rem;">
+            Notas de Cata & Aroma
+          </h3>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            ${notesHtml}
+          </div>
+        </div>
 
-        <div>
-          <a href="/lineas/" class="btn-primary">Volver a la Colección</a>
+        <!-- Specifications Table -->
+        <h3 style="color: var(--color-gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">
+          Especificaciones de la Liga
+        </h3>
+        <div class="glass-card" style="padding: 1.5rem 2rem; margin-bottom: 3rem;">
+          <table style="width: 100%; border-collapse: collapse; color: var(--color-text);">
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.85rem 0; font-weight: 600; width: 45%; color: var(--color-gold-light);">Origen de Cosecha</td>
+              <td style="padding: 0.85rem 0;">República Dominicana (El Cibao)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.85rem 0; font-weight: 600; color: var(--color-gold-light);">Capa / Wrapper</td>
+              <td style="padding: 0.85rem 0;">${meta.wrapper}</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.85rem 0; font-weight: 600; color: var(--color-gold-light);">Elaboración</td>
+              <td style="padding: 0.85rem 0;">100% Hecho a mano (Totalmente a Mano)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.85rem 0; font-weight: 600; color: var(--color-gold-light);">Añejamiento</td>
+              <td style="padding: 0.85rem 0;">Bodegas Climatizadas Santo Domingo</td>
+            </tr>
+          </table>
+        </div>
+
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
+          <a href="/lineas/" class="btn-primary">&larr; Volver a la Colección</a>
+          <a href="/#contact" class="btn-outline">Consultar Disponibilidad</a>
         </div>
       </div>
-      <div
-        class="image-content"
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(195, 153, 64, 0.15);
-          border-radius: 12px;
-          padding: 2.5rem;
-        "
-      >
+
+      <div class="image-content glass-card" style="display: flex; justify-content: center; align-items: center; padding: 3rem; background: radial-gradient(circle at center, rgba(197,160,89,0.12) 0%, rgba(18,16,13,0.9) 100%);">
         <img
           src="/images/${cigar.img}"
           alt="${cigar.alt}"
-          style="max-height: 520px; width: 100%; object-fit: contain"
+          style="max-height: 520px; width: 100%; object-fit: contain; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8));"
         />
       </div>
     </section>
 
-    <footer id="contact" style="margin-top: 4rem">
+    <!-- Vitola Gallery Section -->
+    ${gallerySectionHtml}
+
+    <!-- Footer -->
+    <footer id="contact">
       <div class="footer-content">
         <div class="footer-logo">
           <img
             src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 60px"
+            alt="Caoba Cigars Logo"
           />
         </div>
-        <h2>República Dominicana</h2>
+        <h2 class="gold-gradient-text">Santo Domingo &bull; República Dominicana</h2>
 
         <div class="footer-columns">
-          <div class="contact-info">
+          <div class="footer-col">
+            <h4>Boutique & Ubicación</h4>
             <p>
-              C/ El conde #101 local #9 Centro comercial Colon, Santo Domingo.
-              R.D
+              C/ El Conde #101, Local #9<br />
+              Centro Comercial Colón (Plaza Colón)<br />
+              Zona Colonial, Santo Domingo, R.D.
             </p>
-            <p>📞 +1 (809) 685-6425</p>
           </div>
 
-          <div class="payment-info">
-            <p>Aceptamos pagos con:</p>
+          <div class="footer-col">
+            <h4>Contacto Directo</h4>
+            <p>📞 +1 (809) 685-6425</p>
+            <p>✉️ caobacigars.dr@gmail.com</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Medios de Pago</h4>
+            <p>Aceptamos pagos internacionales:</p>
             <div class="payment-icons">
-              <span>PayPal</span> | <span>VISA</span> |
-              <span>MasterCard</span> | <span>AMEX</span>
+              <span class="payment-badge">PayPal</span>
+              <span class="payment-badge">VISA</span>
+              <span class="payment-badge">MasterCard</span>
+              <span class="payment-badge">AMEX</span>
             </div>
           </div>
         </div>
 
         <div class="disclaimer">
           <p>
-            Los impuesto establecidos por el pais de destino son a cargo y
-            responsabilidad exclusiva del comprador.
+            Los impuestos establecidos por el país de destino son a cargo y responsabilidad exclusiva del comprador. &copy; 2026 Caoba Cigars. Todos los derechos reservados.
           </p>
         </div>
       </div>
@@ -216,5 +329,5 @@ cigars.forEach((cigar) => {
 </html>`;
 
   fs.writeFileSync(path.join(dir, "index.html"), html);
-  console.log(`Created: ${dir}/index.html`);
+  console.log(`Created luxury product page with gallery: ${dir}/index.html`);
 });

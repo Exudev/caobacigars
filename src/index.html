@@ -6,13 +6,9 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
     <meta
       name="description"
-      content="Caoba Cigars: Elaboración de puros premium en la República Dominicana desde 1999. Explora nuestra exquisita colección de cigarros hechos a mano."
+      content="Caoba Cigars: Elaboración de puros premium hecha a mano en la República Dominicana desde 1992. Explora nuestra exquisita colección de cigarros artesanales."
     />
-    <title>Caoba Cigars | Inicio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>Caoba Cigars | Puros Premium Hechos a Mano</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="home-page">
@@ -20,11 +16,7 @@
     <header class="navbar">
       <div class="logo-container">
         <a href="/">
-          <img
-            src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 100px"
-          />
+          <img src="/images/logo-caoba.png" alt="Caoba Cigars Logo" />
         </a>
       </div>
       <nav>
@@ -42,71 +34,242 @@
     >
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Artesanos en labores de tabaco</h1>
-        <p>
-          Cigarros hechos a mano elaborados por los más experimentados maestros
-          tabaqueros con el mejor tabaco dominicanos.
+        <p
+          style="
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          "
+        >
+          República Dominicana &bull; Desde 1992
         </p>
+        <h1 class="gold-gradient-text">Artesanos en Labores de Tabaco</h1>
+        <p>
+          Cigarros de liga exclusiva elaborados 100% a mano por experimentados
+          maestros torcedores en el casco histórico de Santo Domingo.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="/lineas/" class="btn-primary">Explorar Colección</a>
+          <a href="/historia/" class="btn-outline">Nuestra Historia</a>
+        </div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots">
+        <div class="dot active" data-index="0"></div>
+        <div class="dot" data-index="1"></div>
+        <div class="dot" data-index="2"></div>
+        <div class="dot" data-index="3"></div>
+        <div class="dot" data-index="4"></div>
+        <div class="dot" data-index="5"></div>
       </div>
     </section>
 
-    <!-- Content Sections -->
-    <section
-      class="about"
-      style="
-        background-color: var(--color-black);
-        color: var(--color-gold);
-        padding: 4rem 2rem;
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-      "
-    >
-      <p style="margin-bottom: 2rem; font-size: 1.2rem; line-height: 1.8">
-        Caoba Cigars es una empresa familiar dedicada a la fabricación artesanal
-        de cigarros puros, con más de 30 años de experiencia en el sector.
-        Estamos ubicados en el corazón de la República Dominicana, en Santo
-        Domingo.
-      </p>
-      <p style="margin-bottom: 2rem; font-size: 1.2rem; line-height: 1.8">
-        La filosofía de Caoba Cigars es trabajar arduamente en beneficio del
-        cliente, mejorando día a día para ofrecerle un producto único en el que
-        la calidad es el valor más importante.
-      </p>
-      <p style="margin-bottom: 2rem; font-size: 1.2rem; line-height: 1.8">
-        Los invitamos a descubrir quiénes somos como empresa y los cigarros que
-        fabricamos para unirse a la gran familia de Caoba Cigars.
+    <!-- Heritage Stats Bar -->
+    <div class="heritage-stats glass-card">
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Años de Tradición</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Hecho a Mano</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">11</div>
+        <div class="stat-label">Líneas Exclusivas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">Cibao</div>
+        <div class="stat-label">Mejores Vegas</div>
+      </div>
+    </div>
+
+    <!-- Featured Collections Showcase -->
+    <section class="collection">
+      <h2 class="section-title gold-gradient-text">Colección Emblemática</h2>
+      <p class="section-subtitle">
+        Cada línea posee una personalidad distintiva, resultado de añejamientos
+        selectos y capas seleccionadas minuciosamente.
       </p>
 
-      <h2 style="font-size: 2.5rem; margin-top: 3rem; margin-bottom: 2rem">
-        Pasión por la excelencia.
-      </h2>
+      <div class="grid">
+        <div class="card glass-card">
+          <span class="card-badge">Connecticut</span>
+          <div class="card-image">
+            <img src="/images/oro.png" alt="Caoba Oro" />
+          </div>
+          <h3>Caoba Oro</h3>
+          <div class="strength-meter" title="Fortaleza: Suave - Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
+          </div>
+          <p>
+            Cigarro de bella presencia con capa Connecticut de suave comienzo
+            que gana nobleza y cuerpo en la fumada.
+          </p>
+          <a
+            href="/caoba-oro/"
+            class="btn-primary"
+            style="padding: 0.6rem 1.5rem; font-size: 0.8rem"
+            >Ver Selección</a
+          >
+        </div>
 
-      <a
-        href="/lineas/"
-        class="btn-primary"
-        style="margin-top: 1rem; display: inline-block"
-        >Ver Colección</a
-      >
+        <div class="card glass-card">
+          <span class="card-badge">Colorado</span>
+          <div class="card-image">
+            <img src="/images/platino.png" alt="Caoba Platino" />
+          </div>
+          <h3>Caoba Platino</h3>
+          <div class="strength-meter" title="Fortaleza: Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
+          </div>
+          <p>
+            Alquimia de 5 tabacos seleccionados envueltos en capa Connecticut de
+            tono colorado. Elegancia y equilibrio superior.
+          </p>
+          <a
+            href="/caoba-platino/"
+            class="btn-primary"
+            style="padding: 0.6rem 1.5rem; font-size: 0.8rem"
+            >Ver Selección</a
+          >
+        </div>
+
+        <div class="card glass-card">
+          <span class="card-badge">San Andrés</span>
+          <div class="card-image">
+            <img src="/images/diamante.png" alt="Caoba Diamante" />
+          </div>
+          <h3>Caoba Diamante</h3>
+          <div class="strength-meter" title="Fortaleza: Media - Fuerte">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+          </div>
+          <p>
+            Poderoso en paladar y vista gracias a su fina capa San Andrés
+            combinada con selectas hojas criollas dominicanas.
+          </p>
+          <a
+            href="/caoba-diamante/"
+            class="btn-primary"
+            style="padding: 0.6rem 1.5rem; font-size: 0.8rem"
+            >Ver Selección</a
+          >
+        </div>
+
+        <div class="card glass-card">
+          <span class="card-badge">Edición Reserva</span>
+          <div class="card-image">
+            <img src="/images/summun-grande.png" alt="Summum" />
+          </div>
+          <h3>Summum</h3>
+          <div class="strength-meter" title="Fortaleza: Fuerte Complejo">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+          </div>
+          <p>
+            El máximo exponente de nuestra tabacalera. Potente pero sedoso al
+            paladar con aromas complejos de larga evolución.
+          </p>
+          <a
+            href="/summum/"
+            class="btn-primary"
+            style="padding: 0.6rem 1.5rem; font-size: 0.8rem"
+            >Ver Selección</a
+          >
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 4rem">
+        <a href="/lineas/" class="btn-outline"
+          >Ver Todas las Líneas (11) &rarr;</a
+        >
+      </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Atelier Heritage Spotlight -->
+    <section
+      class="split-section"
+      style="
+        border-top: 1px solid rgba(197, 160, 89, 0.15);
+        border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        background: var(--color-bg-dark);
+      "
+    >
+      <div class="text-content">
+        <p
+          style="
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+          "
+        >
+          Boutique de Fabricación
+        </p>
+        <h2 class="gold-gradient-text">Pasión por la Excelencia</h2>
+        <p>
+          Caoba Cigars es una empresa familiar que nace de la pasión de Don
+          Julio Pérez González y Doña Alicia Lama Handal. Ubicada en la
+          emblemática Plaza Colón de la Zona Colonial de Santo Domingo, nuestra
+          boutique invita a contemplar el arte puro del torcido a mano.
+        </p>
+        <p>
+          El aroma del noble guayacán y las hojas añejadas en bodegas con clima
+          controlado garantizan un producto distinguido en mercados de Estados
+          Unidos, Europa y la República Dominicana.
+        </p>
+        <div style="margin-top: 2rem">
+          <a href="/historia/" class="btn-primary">Conoce Nuestra Historia</a>
+        </div>
+      </div>
+      <div class="image-content">
+        <img
+          src="/images/fundador-tabacalera-caoba.jpg"
+          alt="Don Julio Pérez González - Fundador Caoba Cigars"
+        />
+      </div>
+    </section>
+
+    <!-- Location Map Section -->
     <section class="map-section">
-      <h2
-        style="
-          text-align: center;
-          color: var(--color-gold);
-          font-size: 3rem;
-          margin-bottom: 2rem;
-        "
-      >
+      <h2 class="section-title gold-gradient-text" style="margin-bottom: 1rem">
         Nuestra Ubicación
       </h2>
+      <p class="section-subtitle" style="margin-bottom: 2.5rem">
+        Visita nuestra Boutique de Fabricación frente a la Catedral Primada de
+        América.
+      </p>
       <div class="map-container">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.212562181757!2d-69.8865553248095!3d18.474028482610482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf883df4eb86e5%3A0x2400d2780486f081!2sCentro%20Comercial%20Col%C3%B3n!5e0!3m2!1ses!2sdo!4v1787063896105!5m2!1ses!2sdo"
           width="100%"
-          height="450"
+          height="480"
           style="
             border: 0;
             filter: invert(90%) hue-rotate(180deg) grayscale(20%) contrast(120%);
@@ -114,8 +277,7 @@
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
-        >
-        </iframe>
+        ></iframe>
       </div>
     </section>
 
@@ -123,40 +285,50 @@
     <footer id="contact">
       <div class="footer-content">
         <div class="footer-logo">
-          <img
-            src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 60px"
-          />
+          <img src="/images/logo-caoba.png" alt="Caoba Cigars Logo" />
         </div>
-        <h2>República Dominicana</h2>
+        <h2 class="gold-gradient-text">
+          Santo Domingo &bull; República Dominicana
+        </h2>
 
         <div class="footer-columns">
-          <div class="contact-info">
+          <div class="footer-col">
+            <h4>Boutique & Ubicación</h4>
             <p>
-              C/ El conde #101 local #9 Centro comercial Colon, Santo Domingo.
-              R.D
+              C/ El Conde #101, Local #9<br />
+              Centro Comercial Colón (Plaza Colón)<br />
+              Zona Colonial, Santo Domingo, R.D.
             </p>
-            <p>📞 +1 (809) 685-6425</p>
           </div>
 
-          <div class="payment-info">
-            <p>Aceptamos pagos con:</p>
+          <div class="footer-col">
+            <h4>Contacto Directo</h4>
+            <p>📞 +1 (809) 685-6425</p>
+            <p>✉️ caobacigars.dr@gmail.com</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Medios de Pago</h4>
+            <p>Aceptamos pagos internacionales:</p>
             <div class="payment-icons">
-              <span>PayPal</span> | <span>VISA</span> |
-              <span>MasterCard</span> | <span>AMEX</span>
+              <span class="payment-badge">PayPal</span>
+              <span class="payment-badge">VISA</span>
+              <span class="payment-badge">MasterCard</span>
+              <span class="payment-badge">AMEX</span>
             </div>
           </div>
         </div>
 
         <div class="disclaimer">
           <p>
-            Los impuesto establecidos por el pais de destino son a cargo y
-            responsabilidad exclusiva del comprador.
+            Los impuestos establecidos por el país de destino son a cargo y
+            responsabilidad exclusiva del comprador. &copy; 2026 Caoba Cigars.
+            Todos los derechos reservados.
           </p>
         </div>
       </div>
     </footer>
+
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

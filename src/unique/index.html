@@ -6,26 +6,17 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
     <meta
       name="description"
-      content="Descubre el cigarro Unique de Caoba Cigars. Selección de tabacos dominicanos enrollados en una impresionante
-            capa Connecticut. Prepárate para sorprenderte con un sabor sedoso
-            pero impactante."
+      content="Cigarro Unique de Caoba Cigars. Selección de tabacos dominicanos enrollados en una impresionante capa Connecticut. Sorprende con un sabor sedoso pero impactante."
     />
     <title>Unique - Caoba Cigars</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="product-page">
+    <!-- Navbar -->
     <header class="navbar">
       <div class="logo-container">
         <a href="/">
-          <img
-            src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 100px"
-          />
+          <img src="/images/logo-caoba.png" alt="Caoba Cigars Logo" />
         </a>
       </div>
       <nav>
@@ -35,144 +26,352 @@
       </nav>
     </header>
 
-    <section class="split-section" style="padding-top: 3rem">
+    <!-- Product Detail Section -->
+    <section
+      class="split-section"
+      style="padding-top: 4rem; padding-bottom: 4rem"
+    >
       <div class="text-content">
-        <h1
+        <p
           style="
-            font-family: &quot;Playfair Display&quot;, serif;
-            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             color: var(--color-gold);
-            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
           "
+        >
+          Línea Exclusiva Caoba Cigars
+        </p>
+        <h1
+          class="gold-gradient-text"
+          style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.25rem"
         >
           Unique
         </h1>
+
+        <!-- Strength Indicator -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+          "
+        >
+          <span
+            style="
+              font-size: 0.85rem;
+              text-transform: uppercase;
+              letter-spacing: 1.5px;
+              color: var(--color-text-muted);
+            "
+          >
+            Fortaleza: <strong>Suave - Medio</strong>
+          </span>
+          <div class="strength-meter" style="margin-bottom: 0">
+            <span class="strength-dot filled"></span
+            ><span class="strength-dot filled"></span
+            ><span class="strength-dot"></span><span class="strength-dot"></span
+            ><span class="strength-dot"></span>
+          </div>
+        </div>
+
         <p
           style="
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             line-height: 1.8;
             color: var(--color-text);
             margin-bottom: 2.5rem;
+            font-weight: 300;
           "
         >
           Selección de tabacos dominicanos enrollados en una impresionante capa
-          Connecticut. Prepárate para sorprenderte con un sabor sedoso pero
-          impactante.
+          Connecticut. Sorprende con un sabor sedoso pero impactante.
         </p>
 
-        <h2
+        <!-- Tasting Notes -->
+        <div style="margin-bottom: 2.5rem">
+          <h3
+            style="
+              color: var(--color-gold);
+              font-size: 1rem;
+              text-transform: uppercase;
+              letter-spacing: 2px;
+              margin-bottom: 0.85rem;
+            "
+          >
+            Notas de Cata & Aroma
+          </h3>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap">
+            <span
+              style="
+                background: rgba(197, 160, 89, 0.12);
+                border: 1px solid var(--border-gold);
+                color: var(--color-gold-light);
+                padding: 0.4rem 1rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 500;
+              "
+              >Almendra Tostada</span
+            >
+            <span
+              style="
+                background: rgba(197, 160, 89, 0.12);
+                border: 1px solid var(--border-gold);
+                color: var(--color-gold-light);
+                padding: 0.4rem 1rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 500;
+              "
+              >Vainilla</span
+            >
+            <span
+              style="
+                background: rgba(197, 160, 89, 0.12);
+                border: 1px solid var(--border-gold);
+                color: var(--color-gold-light);
+                padding: 0.4rem 1rem;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 500;
+              "
+              >Té Dulce</span
+            >
+          </div>
+        </div>
+
+        <!-- Specifications Table -->
+        <h3
           style="
             color: var(--color-gold);
-            font-size: 1.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 1rem;
           "
         >
-          Especificaciones
-        </h2>
-        <table
-          style="
-            width: 100%;
-            border-collapse: collapse;
-            color: var(--color-text);
-            margin-bottom: 3rem;
-          "
+          Especificaciones de la Liga
+        </h3>
+        <div
+          class="glass-card"
+          style="padding: 1.5rem 2rem; margin-bottom: 3rem"
         >
-          <tr style="border-bottom: 1px solid #333">
-            <td
-              style="
-                padding: 1rem 0;
-                font-weight: 600;
-                width: 40%;
-                color: var(--color-gold-dark);
-              "
-            >
-              Origen
-            </td>
-            <td style="padding: 1rem 0">República Dominicana</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #333">
-            <td
-              style="
-                padding: 1rem 0;
-                font-weight: 600;
-                color: var(--color-gold-dark);
-              "
-            >
-              Elaboración
-            </td>
-            <td style="padding: 1rem 0">Hecho a mano / Handmade</td>
-          </tr>
-          <tr style="border-bottom: 1px solid #333">
-            <td
-              style="
-                padding: 1rem 0;
-                font-weight: 600;
-                color: var(--color-gold-dark);
-              "
-            >
-              Categoría
-            </td>
-            <td style="padding: 1rem 0">Premium</td>
-          </tr>
-        </table>
+          <table
+            style="
+              width: 100%;
+              border-collapse: collapse;
+              color: var(--color-text);
+            "
+          >
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08)">
+              <td
+                style="
+                  padding: 0.85rem 0;
+                  font-weight: 600;
+                  width: 45%;
+                  color: var(--color-gold-light);
+                "
+              >
+                Origen de Cosecha
+              </td>
+              <td style="padding: 0.85rem 0">
+                República Dominicana (El Cibao)
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08)">
+              <td
+                style="
+                  padding: 0.85rem 0;
+                  font-weight: 600;
+                  color: var(--color-gold-light);
+                "
+              >
+                Capa / Wrapper
+              </td>
+              <td style="padding: 0.85rem 0">Connecticut Premium</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08)">
+              <td
+                style="
+                  padding: 0.85rem 0;
+                  font-weight: 600;
+                  color: var(--color-gold-light);
+                "
+              >
+                Elaboración
+              </td>
+              <td style="padding: 0.85rem 0">
+                100% Hecho a mano (Totalmente a Mano)
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="
+                  padding: 0.85rem 0;
+                  font-weight: 600;
+                  color: var(--color-gold-light);
+                "
+              >
+                Añejamiento
+              </td>
+              <td style="padding: 0.85rem 0">
+                Bodegas Climatizadas Santo Domingo
+              </td>
+            </tr>
+          </table>
+        </div>
 
-        <div>
-          <a href="/lineas/" class="btn-primary">Volver a la Colección</a>
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap">
+          <a href="/lineas/" class="btn-primary"
+            >&larr; Volver a la Colección</a
+          >
+          <a href="/#contact" class="btn-outline">Consultar Disponibilidad</a>
         </div>
       </div>
+
       <div
-        class="image-content"
+        class="image-content glass-card"
         style="
           display: flex;
           justify-content: center;
           align-items: center;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(195, 153, 64, 0.15);
-          border-radius: 12px;
-          padding: 2.5rem;
+          padding: 3rem;
+          background: radial-gradient(
+            circle at center,
+            rgba(197, 160, 89, 0.12) 0%,
+            rgba(18, 16, 13, 0.9) 100%
+          );
         "
       >
         <img
           src="/images/unique.png"
           alt="Unique"
-          style="max-height: 520px; width: 100%; object-fit: contain"
+          style="
+            max-height: 520px;
+            width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
+          "
         />
       </div>
     </section>
 
-    <footer id="contact" style="margin-top: 4rem">
-      <div class="footer-content">
-        <div class="footer-logo">
+    <!-- Vitola Gallery Section -->
+
+    <section style="max-width: 1280px; margin: 0 auto; padding: 0 2rem 5rem">
+      <h3
+        style="
+          color: var(--color-gold);
+          font-size: 1.25rem;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          margin-bottom: 1.5rem;
+          text-align: center;
+        "
+      >
+        Vitolas & Presentación de la Línea
+      </h3>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1.5rem;
+        "
+      >
+        <div
+          class="glass-card"
+          style="
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+          "
+        >
           <img
-            src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 60px"
+            src="/images/Caoba-Unique-gold1.png"
+            alt="Unique Vitola"
+            style="
+              max-height: 170px;
+              width: auto;
+              object-fit: contain;
+              filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
+            "
           />
         </div>
-        <h2>República Dominicana</h2>
+        <div
+          class="glass-card"
+          style="
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+          "
+        >
+          <img
+            src="/images/Caoba-Unique-Silver1.png"
+            alt="Unique Vitola"
+            style="
+              max-height: 170px;
+              width: auto;
+              object-fit: contain;
+              filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
+            "
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/images/logo-caoba.png" alt="Caoba Cigars Logo" />
+        </div>
+        <h2 class="gold-gradient-text">
+          Santo Domingo &bull; República Dominicana
+        </h2>
 
         <div class="footer-columns">
-          <div class="contact-info">
+          <div class="footer-col">
+            <h4>Boutique & Ubicación</h4>
             <p>
-              C/ El conde #101 local #9 Centro comercial Colon, Santo Domingo.
-              R.D
+              C/ El Conde #101, Local #9<br />
+              Centro Comercial Colón (Plaza Colón)<br />
+              Zona Colonial, Santo Domingo, R.D.
             </p>
-            <p>📞 +1 (809) 685-6425</p>
           </div>
 
-          <div class="payment-info">
-            <p>Aceptamos pagos con:</p>
+          <div class="footer-col">
+            <h4>Contacto Directo</h4>
+            <p>📞 +1 (809) 685-6425</p>
+            <p>✉️ caobacigars.dr@gmail.com</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Medios de Pago</h4>
+            <p>Aceptamos pagos internacionales:</p>
             <div class="payment-icons">
-              <span>PayPal</span> | <span>VISA</span> |
-              <span>MasterCard</span> | <span>AMEX</span>
+              <span class="payment-badge">PayPal</span>
+              <span class="payment-badge">VISA</span>
+              <span class="payment-badge">MasterCard</span>
+              <span class="payment-badge">AMEX</span>
             </div>
           </div>
         </div>
 
         <div class="disclaimer">
           <p>
-            Los impuesto establecidos por el pais de destino son a cargo y
-            responsabilidad exclusiva del comprador.
+            Los impuestos establecidos por el país de destino son a cargo y
+            responsabilidad exclusiva del comprador. &copy; 2026 Caoba Cigars.
+            Todos los derechos reservados.
           </p>
         </div>
       </div>

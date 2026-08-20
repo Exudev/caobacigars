@@ -6,24 +6,17 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
     <meta
       name="description"
-      content="Líneas de Cigarros - Caoba Cigars. Descubre nuestra colección premium: Oro, Platino, Diamante y más. Hechos a mano en Santo Domingo."
+      content="Líneas de Cigarros - Caoba Cigars. Descubre nuestra exclusiva colección de 11 líneas de puros artesanalmente elaborados en Santo Domingo: Oro, Platino, Diamante, Summum, Gran Reserva y más."
     />
     <title>Líneas de Cigarros | Caoba Cigars</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+    <!-- Navbar -->
     <header class="navbar">
       <div class="logo-container">
         <a href="/">
-          <img
-            src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 100px"
-          />
+          <img src="/images/logo-caoba.png" alt="Caoba Cigars Logo" />
         </a>
       </div>
       <nav>
@@ -33,368 +26,417 @@
       </nav>
     </header>
 
-    <section id="lineas" class="collection">
-      <h2
+    <!-- Page Header Banner -->
+    <section
+      style="
+        padding: 4rem 2rem 2rem;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          rgba(197, 160, 89, 0.1) 0%,
+          rgba(10, 9, 8, 0) 100%
+        );
+      "
+    >
+      <p
         style="
-          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 3px;
           color: var(--color-gold);
-          font-size: 3rem;
-          margin-bottom: 3rem;
+          font-size: 0.85rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
         "
       >
-        Líneas de Cigarros
-      </h2>
-      <div class="grid">
-        <div class="card">
+        Colección Exclusiva de Puros Dominicos
+      </p>
+      <h1 class="section-title gold-gradient-text">Líneas de Cigarros</h1>
+      <p class="section-subtitle">
+        11 ligas únicas elaboradas con las más finas hojas de tabaco
+        seleccionadas de República Dominicana, Ecuador, México y Nicaragua.
+      </p>
+
+      <!-- Filter Buttons -->
+      <div class="filter-container" id="filter-bar">
+        <button class="filter-btn active" data-filter="all">
+          Todas las Líneas (11)
+        </button>
+        <button class="filter-btn" data-filter="suave">Suave - Media</button>
+        <button class="filter-btn" data-filter="medio">Media - Fuerte</button>
+        <button class="filter-btn" data-filter="reserva">
+          Edición Reserva
+        </button>
+      </div>
+    </section>
+
+    <!-- Cigar Grid Section -->
+    <section class="collection" style="padding-top: 1rem">
+      <div class="grid" id="cigar-grid">
+        <!-- Caoba Oro -->
+        <div class="card glass-card" data-category="suave">
+          <span class="card-badge">Capa Connecticut</span>
           <div class="card-image">
-            <img
-              src="/images/oro.png"
-              alt="Caoba Oro"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/oro.png" alt="Caoba Oro" />
           </div>
-          <h2>Caoba Oro</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/caoba-oro/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Caoba Oro</h3>
+          <div class="strength-meter" title="Fortaleza: Suave - Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
-            Cigarro de Bella presencia gracias a su capa Connecticut, de suave
-            comienzo ganando cuerpo al llegar a su fin. Tripa y capote cultivado
-            en el País. Vitolas va desde el Robusto al Esplendido pasando por el
-            Torpedo.
+            Cigarro de bella presencia gracias a su capa Connecticut, de suave
+            comienzo ganando cuerpo al llegar a su fin. Tripa y capote
+            cultivados en el país.
           </p>
+          <a
+            href="/caoba-oro/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Caoba Platino -->
+        <div class="card glass-card" data-category="medio">
+          <span class="card-badge">Connecticut Colorado</span>
           <div class="card-image">
-            <img
-              src="/images/platino.png"
-              alt="Caoba Platino"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/platino.png" alt="Caoba Platino" />
           </div>
-          <h2>Caoba Platino</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/caoba-platino/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Caoba Platino</h3>
+          <div class="strength-meter" title="Fortaleza: Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
-            Al igual que su hermano el Caoba Oro la presencia de este cigarro se
-            ve incrementada por una capa Connecticut de tono colorado. El arte
-            de la liga se ve recompensado en la alquimia de los 5 diferentes
-            tabacos que componen el tirulo. Cigarro elegante con una fumada que
-            agrada al consumidor que busca subir un escalón hacia el tabaco más
-            potente.
+            Incrementado por una capa Connecticut de tono colorado. Alquimia de
+            5 diferentes tabacos que componen el tirulo para una fumada potente
+            y elegante.
           </p>
+          <a
+            href="/caoba-platino/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Caoba Diamante -->
+        <div class="card glass-card" data-category="medio">
+          <span class="card-badge">Capa San Andrés</span>
           <div class="card-image">
-            <img
-              src="/images/diamante.png"
-              alt="Caoba Diamante"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/diamante.png" alt="Caoba Diamante" />
           </div>
-          <h2>Caoba Diamante</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/caoba-diamante/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Caoba Diamante</h3>
+          <div class="strength-meter" title="Fortaleza: Media - Fuerte">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
-            Con su capa San Andrés importada de su Mexico originario, en
-            combinación de hojas criollas, se presenta poderoso tanto a la vista
-            como al paladar.
+            Con su capa San Andrés importada de México en combinación con hojas
+            criollas dominicanas, se presenta poderoso a la vista y al paladar.
           </p>
+          <a
+            href="/caoba-diamante/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Supreme -->
+        <div class="card glass-card" data-category="suave">
+          <span class="card-badge">Capa Dominicana</span>
           <div class="card-image">
-            <img
-              src="/images/supreme.png"
-              alt="Supreme"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/supreme.png" alt="Supreme" />
           </div>
-          <h2>Supreme</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/supreme/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Supreme</h3>
+          <div class="strength-meter" title="Fortaleza: Suave">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
-            Elaborado con una selección de tabacos originarios de dominicana al
-            igual que su capa, produce un cigarro de elegante suavidad.
+            Elaborado con una fina selección de tabacos originarios de
+            Dominicana al igual que su capa, produce un cigarro de elegante
+            suavidad.
           </p>
+          <a
+            href="/supreme/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Magnifico -->
+        <div class="card glass-card" data-category="medio">
+          <span class="card-badge">San Andrés Nacional</span>
           <div class="card-image">
-            <img
-              src="/images/magnifico.png"
-              alt="Magnifico"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/magnifico.png" alt="Magnifico" />
           </div>
-          <h2>Magnifico</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/magnifico/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Magnifico</h3>
+          <div class="strength-meter" title="Fortaleza: Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
             Cigarro de intenso aroma y fino humo que nace de la sabia
-            combinación de sus tabacos criollos y de la capa San Andrés también
-            de cultivo nacional.
+            combinación de sus tabacos criollos y capa San Andrés de cultivo
+            nacional.
           </p>
+          <a
+            href="/magnifico/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Unique -->
+        <div class="card glass-card" data-category="suave">
+          <span class="card-badge">Connecticut Premium</span>
           <div class="card-image">
-            <img
-              src="/images/unique.png"
-              alt="Unique"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/unique.png" alt="Unique" />
           </div>
-          <h2>Unique</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/unique/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Unique</h3>
+          <div class="strength-meter" title="Fortaleza: Suave - Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
             Selección de tabacos dominicanos enrollados en una impresionante
-            capa Connecticut. Prepárate para sorprenderte con un sabor sedoso
-            pero impactante.
+            capa Connecticut. Sorprende con un sabor sedoso pero impactante.
           </p>
+          <a
+            href="/unique/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Quisqueyano -->
+        <div class="card glass-card" data-category="medio">
+          <span class="card-badge">Capa Yamasá</span>
           <div class="card-image">
-            <img
-              src="/images/quisque.png"
-              alt="Quisqueyano"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/quisque.png" alt="Quisqueyano" />
           </div>
-          <h2>Quisqueyano</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/quisqueyano/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Quisqueyano</h3>
+          <div class="strength-meter" title="Fortaleza: Media">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
-            Cigarro con fortaleza media, sabor muy agradable con tripa, capote
-            dominicano y capa Yamasa.
+            Cigarro con fortaleza media y sabor muy agradable con tripa, capote
+            dominicano y distinguida capa de la región de Yamasá.
           </p>
+          <a
+            href="/quisqueyano/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Gran Reserva -->
+        <div class="card glass-card" data-category="reserva">
+          <span class="card-badge">Gran Añejo</span>
           <div class="card-image">
-            <img
-              src="/images/gran-reserva.png"
-              alt="Gran Reserva"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/gran-reserva.png" alt="Gran Reserva" />
           </div>
-          <h2>Gran Reserva</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/gran-reserva/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Gran Reserva</h3>
+          <div class="strength-meter" title="Fortaleza: Fuerte Añejado">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
             Poderoso cigarro elaborado con una selección estricta de nuestros
-            tabacos y añejado para suavizar y perfilar sus aromas y sabores.
+            tabacos añejados para suavizar y perfilar sus complejos aromas.
           </p>
+          <a
+            href="/gran-reserva/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Origen Dominicano -->
+        <div class="card glass-card" data-category="reserva">
+          <span class="card-badge">San Andrés Oscura</span>
           <div class="card-image">
-            <img
-              src="/images/origen.png"
-              alt="Origen Dominicano"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/origen.png" alt="Origen Dominicano" />
           </div>
-          <h2>Origen Dominicano</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/origen-dominicano/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Origen Dominicano</h3>
+          <div class="strength-meter" title="Fortaleza: Fuerte">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
           </div>
           <p>
-            De presencia imponente con capa San Andrés colorada oscura y
-            poderosa liga de nuestros más seleccionados y añejados tabacos.
-            Potente en boca y deleitando la nariz con su exquisito aroma.
+            De presencia imponente con capa San Andrés colorada oscura y liga
+            potente de nuestros tabacos más añejados y seleccionados.
           </p>
+          <a
+            href="/origen-dominicano/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Töa -->
+        <div class="card glass-card" data-category="medio">
+          <span class="card-badge">100% Taíno Criollo</span>
           <div class="card-image">
-            <img
-              src="/images/toa.png"
-              alt="Töa"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/toa.png" alt="Töa" />
           </div>
-          <h2>Töa</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/toa/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Töa</h3>
+          <div class="strength-meter" title="Fortaleza: Media - Fuerte">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot"></span>
           </div>
           <p>
-            Selección de hojas criollas incluida su capa. Potente, aromático se
-            define a sí mismo como genuino cigarro Taíno criollo.
+            Selección exclusiva de hojas criollas incluida su capa. Potente y
+            aromático, se define como el genuino cigarro Taíno criollo.
           </p>
+          <a
+            href="/toa/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
-        <div class="card">
+
+        <!-- Summum -->
+        <div class="card glass-card" data-category="reserva">
+          <span class="card-badge">Máximo Exponente</span>
           <div class="card-image">
-            <img
-              src="/images/summun.png"
-              alt="Summum"
-              style="width: 100%; height: 100%; object-fit: contain"
-            />
+            <img src="/images/summun.png" alt="Summum" />
           </div>
-          <h2>Summum</h2>
-          <div style="margin: 1rem 0">
-            <a
-              href="/summum/"
-              class="btn-primary"
-              style="
-                margin-top: 1.5rem;
-                display: inline-block;
-                padding: 0.5rem 1.5rem;
-                font-size: 0.9rem;
-              "
-              >Ver Más</a
-            >
+          <h3>Summum</h3>
+          <div class="strength-meter" title="Fortaleza: Fuerte Complejo">
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
+            <span class="strength-dot filled"></span>
           </div>
           <p>
-            Como reza la leyenda del interior de su caja “En este periplo de 30
-            años hemos recopilado el saber de los cultivadores, torcedores y de
-            todos aquellos que intervienen en la elaboración de este cigarro.
-            Máximo exponente de la tabacalera.” Potente pero sedoso al paladar,
-            aromas complejos en nariz, teniendo un final con una melosa
-            potencia.
+            El saber recopilado durante 30 años por cultivadores y torcedores.
+            Potente pero sedoso al paladar con un final meloso inolvidable.
           </p>
+          <a
+            href="/summum/"
+            class="btn-primary"
+            style="padding: 0.65rem 1.5rem; font-size: 0.825rem"
+            >Ver Detalles</a
+          >
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contact">
       <div class="footer-content">
         <div class="footer-logo">
-          <img
-            src="/images/logo-caoba.png"
-            alt="Caoba Logo"
-            style="height: 60px"
-          />
+          <img src="/images/logo-caoba.png" alt="Caoba Cigars Logo" />
         </div>
-        <h2>República Dominicana</h2>
+        <h2 class="gold-gradient-text">
+          Santo Domingo &bull; República Dominicana
+        </h2>
 
         <div class="footer-columns">
-          <div class="contact-info">
+          <div class="footer-col">
+            <h4>Boutique & Ubicación</h4>
             <p>
-              C/ El conde #101 local #9 Centro comercial Colon, Santo Domingo.
-              R.D
+              C/ El Conde #101, Local #9<br />
+              Centro Comercial Colón (Plaza Colón)<br />
+              Zona Colonial, Santo Domingo, R.D.
             </p>
-            <p>📞 +1 (809) 685-6425</p>
           </div>
 
-          <div class="payment-info">
-            <p>Aceptamos pagos con:</p>
+          <div class="footer-col">
+            <h4>Contacto Directo</h4>
+            <p>📞 +1 (809) 685-6425</p>
+            <p>✉️ caobacigars.dr@gmail.com</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>Medios de Pago</h4>
+            <p>Aceptamos pagos internacionales:</p>
             <div class="payment-icons">
-              <span>PayPal</span> | <span>VISA</span> |
-              <span>MasterCard</span> | <span>AMEX</span>
+              <span class="payment-badge">PayPal</span>
+              <span class="payment-badge">VISA</span>
+              <span class="payment-badge">MasterCard</span>
+              <span class="payment-badge">AMEX</span>
             </div>
           </div>
         </div>
 
         <div class="disclaimer">
           <p>
-            Los impuesto establecidos por el pais de destino son a cargo y
-            responsabilidad exclusiva del comprador.
+            Los impuestos establecidos por el país de destino son a cargo y
+            responsabilidad exclusiva del comprador. &copy; 2026 Caoba Cigars.
+            Todos los derechos reservados.
           </p>
         </div>
       </div>
     </footer>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterBtns = document.querySelectorAll("#filter-bar .filter-btn");
+        const cards = document.querySelectorAll("#cigar-grid .card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filterValue = btn.getAttribute("data-filter");
+
+            cards.forEach((card) => {
+              const category = card.getAttribute("data-category");
+              if (filterValue === "all" || category === filterValue) {
+                card.style.display = "flex";
+                card.style.animation = "fadeInUp 0.5s ease forwards";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
