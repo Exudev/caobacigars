@@ -11,8 +11,17 @@ const cigarMetadata = {
   "caoba-oro": {
     strength: 2,
     wrapper: "Connecticut",
+    binder: "Dominicano",
+    filler: "Dominicana",
+    aging: "> 2 años",
     body: "Suave - Medio",
     notes: ["Crema", "Nuez", "Cedro Noble", "Vainilla"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Espléndido", dimension: '6 3/4" x 47' },
+      { name: "Torpedo", dimension: '6" x 52' },
+      { name: "Robusto", dimension: '5" x 50' },
+    ],
     gallery: [
       "Caoba-Oro-Robusto1.png",
       "Caoba-Oro-Robusto2.png",
@@ -22,8 +31,17 @@ const cigarMetadata = {
   "caoba-platino": {
     strength: 3,
     wrapper: "Connecticut Colorado",
+    binder: "Dominicano",
+    filler: "Dominicana",
+    aging: "> 3 años",
     body: "Medio",
     notes: ["Pimiento Suave", "Cacao Rico", "Frutos Secos"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Espléndido", dimension: '6 3/4" x 47' },
+      { name: "Torpedo", dimension: '6" x 52' },
+      { name: "Robusto", dimension: '5" x 50' },
+    ],
     gallery: [
       "Caoba-Platino-Esplendidos1.png",
       "Caoba-Platino-Robusto1.png",
@@ -33,50 +51,113 @@ const cigarMetadata = {
   "caoba-diamante": {
     strength: 4,
     wrapper: "San Andrés (México)",
+    binder: "Dominicano",
+    filler: "Dominicana Criolla",
+    aging: "> 3 años",
     body: "Medio - Fuerte",
     notes: ["Tierra Fértil", "Chocolate Negro", "Especias Cálidas"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Espléndido", dimension: '6 3/4" x 47' },
+      { name: "Torpedo", dimension: '6" x 52' },
+      { name: "Robusto", dimension: '5" x 50' },
+    ],
     gallery: ["Diamante-1_cpweHj.png", "diamante.png"],
   },
   supreme: {
     strength: 2,
-    wrapper: "Dominicana",
+    wrapper: "Selección Dominicana",
+    binder: "Dominicano",
+    filler: "Dominicana",
+    aging: "> 2 años",
     body: "Suave",
     notes: ["Miel Silvestre", "Mantequilla", "Madera Fina"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Toro", dimension: '6" x 52' },
+      { name: "Robusto", dimension: '5" x 50' },
+      { name: "Torpedo", dimension: '6" x 52' },
+    ],
     gallery: ["Caoba-Supreme1.png", "Caoba-Supreme2.png", "Caoba-Supreme4.png"],
   },
   magnifico: {
     strength: 3,
     wrapper: "San Andrés Nacional",
+    binder: "Habano Ecuador",
+    filler: "Dominicana & Nicaragüense",
+    aging: "> 4 años",
     body: "Medio",
     notes: ["Madera Tostada", "Caramelo Tostado", "Cuero Fino"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Toro", dimension: '6" x 54' },
+      { name: "Torpedo", dimension: '6" x 52' },
+      { name: "Robusto", dimension: '5" x 52' },
+    ],
     gallery: ["Caoba-Magnificos-Toro1.png", "Caoba-Magnificos-Torpedo2.png"],
   },
   unique: {
     strength: 2,
     wrapper: "Connecticut Premium",
+    binder: "Dominicano",
+    filler: "Selección Especial Dominicana",
+    aging: "> 3 años",
     body: "Suave - Medio",
     notes: ["Almendra Tostada", "Vainilla", "Té Dulce"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Unique Gold", dimension: '6" x 52' },
+      { name: "Unique Silver", dimension: '6" x 50' },
+    ],
     gallery: ["Caoba-Unique-gold1.png", "Caoba-Unique-Silver1.png"],
   },
   quisqueyano: {
     strength: 3,
     wrapper: "Yamasá",
+    binder: "Dominicano",
+    filler: "Dominicana Tradicional",
+    aging: "> 3 años",
     body: "Medio",
     notes: ["Tierra Fértil", "Café Tostado", "Corteza de Pan"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Espléndido", dimension: '6 3/4" x 47' },
+      { name: "Toro", dimension: '6" x 52' },
+      { name: "Robusto", dimension: '5" x 50' },
+    ],
     gallery: ["Caoba-Quisqueyanos-Esplendidos1.png", "Caoba-Quisqueyanos-Toro2.png"],
   },
   "gran-reserva": {
     strength: 4,
-    wrapper: "Añejada Especial",
+    wrapper: "Añejada Especial (Vintage)",
+    binder: "Dominicano",
+    filler: "Selección Privada Dominicana",
+    aging: "> 5 años",
     body: "Fuerte Añejado",
     notes: ["Roble Antiguo", "Tabaco Curado", "Frutas Secas"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Gran Reserva Churchill", dimension: '7" x 50' },
+      { name: "Gran Reserva Torpedo", dimension: '6 1/4" x 52' },
+      { name: "Gran Reserva Robusto", dimension: '5 1/2" x 52' },
+    ],
     gallery: ["gran-reserva-1_osIOzT.png"],
   },
   "origen-dominicano": {
     strength: 5,
     wrapper: "San Andrés Oscura",
+    binder: "Dominicano",
+    filler: "Ligero Dominicano",
+    aging: "> 4 años",
     body: "Fuerte Intenso",
     notes: ["Espresso", "Cacao Puro", "Pimienta Negra"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Don Juan", dimension: '6" x 54' },
+      { name: "Don Julio", dimension: '5 1/2" x 52' },
+      { name: "Don Manuel", dimension: '6 1/2" x 54' },
+      { name: "Don Mario", dimension: '5" x 50' },
+    ],
     gallery: [
       "Caoba-Origen-Dominicano-Don-Juan1.png",
       "Caoba-Origen-Dominicano-Don-Julio1.png",
@@ -86,15 +167,32 @@ const cigarMetadata = {
   toa: {
     strength: 4,
     wrapper: "Taíno Criollo 100%",
+    binder: "Dominicano",
+    filler: "Autóctona Dominicana",
+    aging: "> 3 años",
     body: "Medio - Fuerte",
     notes: ["Especias Nativas", "Hierbas Silvestres", "Madera Guayacán"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Töa Toro", dimension: '6" x 52' },
+      { name: "Töa Robusto", dimension: '5" x 50' },
+    ],
     gallery: ["toa-1.png"],
   },
   summum: {
     strength: 5,
     wrapper: "Cosecha Selección 30 Años",
+    binder: "Dominicano",
+    filler: "Reserva de la Familia",
+    aging: "> 5 años",
     body: "Fuerte Complejo",
     notes: ["Melasa", "Cedro Añejo", "Chocolate Puro", "Nuez Tostada"],
+    packaging: "20 / 12 / 6 / 3",
+    vitolas: [
+      { name: "Summum Gran Toro", dimension: '6 1/2" x 54' },
+      { name: "Summum Torpedo", dimension: '6 1/2" x 52' },
+      { name: "Summum Robusto Extra", dimension: '5 1/2" x 52' },
+    ],
     gallery: ["summun-1.png"],
   },
 };
@@ -222,9 +320,53 @@ cigars.forEach((cigar) => {
           </div>
         </div>
 
-        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--color-text); margin-bottom: 2.5rem; font-weight: 300;">
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--color-text); margin-bottom: 2rem; font-weight: 300;">
           ${cigar.desc}
         </p>
+
+        <!-- Blend Features -->
+        <ul style="list-style: none; padding: 0; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.6rem;">
+          <li style="display: flex; align-items: center; gap: 0.6rem; color: var(--color-gold-light); font-size: 0.95rem;">
+            <span style="color: var(--color-gold);">🕒</span> Envejecimiento: <span style="color: var(--color-text); font-weight: 500;">${meta.aging || "> 2 años"}</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.6rem; color: var(--color-gold-light); font-size: 0.95rem;">
+            <span style="color: var(--color-gold);">✔</span> Capa: <span style="color: var(--color-text); font-weight: 500;">${meta.wrapper}</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.6rem; color: var(--color-gold-light); font-size: 0.95rem;">
+            <span style="color: var(--color-gold);">✔</span> Tripa: <span style="color: var(--color-text); font-weight: 500;">${meta.filler || "Dominicana"}</span>
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.6rem; color: var(--color-gold-light); font-size: 0.95rem;">
+            <span style="color: var(--color-gold);">✔</span> Capote: <span style="color: var(--color-text); font-weight: 500;">${meta.binder || "Dominicano"}</span>
+          </li>
+        </ul>
+
+        <!-- Vitolas & Dimensions Table -->
+        <div class="glass-card" style="padding: 1rem 1.5rem; margin-bottom: 2.5rem; overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; color: var(--color-text); font-size: 0.95rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(197, 160, 89, 0.3);">
+                <th style="padding: 0.75rem 0.5rem; text-align: left; color: var(--color-gold-light); font-weight: 600; font-family: 'Cinzel', serif;">Vitola</th>
+                <th style="padding: 0.75rem 0.5rem; text-align: left; color: var(--color-gold-light); font-weight: 600; font-family: 'Cinzel', serif;">Dimensión</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${(meta.vitolas || []).map(v => `
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text); font-weight: 500;">${v.name}</td>
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text-muted);">${v.dimension}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Presentación Packaging -->
+        <div style="margin-bottom: 2.5rem;">
+          <h3 style="color: var(--color-gold); font-size: 1.5rem; font-family: 'Cinzel', serif; margin-bottom: 0.75rem;">Presentación</h3>
+          <p style="color: var(--color-text); font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>📦</span> <strong>cajas (unidades):</strong> ${meta.packaging || "20 / 12 / 6 / 3"}
+          </p>
+        </div>
 
         <!-- Tasting Notes -->
         <div style="margin-bottom: 2.5rem;">
@@ -234,31 +376,6 @@ cigars.forEach((cigar) => {
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             ${notesHtml}
           </div>
-        </div>
-
-        <!-- Specifications Table -->
-        <h3 style="color: var(--color-gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">
-          Especificaciones de la Liga
-        </h3>
-        <div class="glass-card" style="padding: 1.5rem 2rem; margin-bottom: 3rem;">
-          <table style="width: 100%; border-collapse: collapse; color: var(--color-text);">
-            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-              <td style="padding: 0.85rem 0; font-weight: 600; width: 45%; color: var(--color-gold-light);">Origen de Cosecha</td>
-              <td style="padding: 0.85rem 0;">República Dominicana (El Cibao)</td>
-            </tr>
-            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-              <td style="padding: 0.85rem 0; font-weight: 600; color: var(--color-gold-light);">Capa / Wrapper</td>
-              <td style="padding: 0.85rem 0;">${meta.wrapper}</td>
-            </tr>
-            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-              <td style="padding: 0.85rem 0; font-weight: 600; color: var(--color-gold-light);">Elaboración</td>
-              <td style="padding: 0.85rem 0;">100% Hecho a mano (Totalmente a Mano)</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.85rem 0; font-weight: 600; color: var(--color-gold-light);">Añejamiento</td>
-              <td style="padding: 0.85rem 0;">Bodegas Climatizadas Santo Domingo</td>
-            </tr>
-          </table>
         </div>
 
         <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
