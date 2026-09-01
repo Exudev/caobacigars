@@ -23,3 +23,6 @@ live_oro_tree.txt
 live_lineas_tree.txt
 live_home_tree.txt
 parsed.txt
+
+# Backup directory for unused images
+.images/
