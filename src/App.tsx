@@ -57,6 +57,7 @@ export const App: React.FC = () => {
       "origen-dominicano",
       "toa",
       "summum",
+      "bohio",
     ];
 
     const foundSlug = productSlugs.find((slug) => cleanPath.includes(slug));
