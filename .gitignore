@@ -26,3 +26,7 @@ parsed.txt
 
 # Backup directory for unused images
 .images/
+
+# Repository ground rules
+.rules/
+
