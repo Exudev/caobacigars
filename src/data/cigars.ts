@@ -261,7 +261,7 @@ export const CIGAR_LINES: CigarLine[] = [
     tagline: "Nueva Edición Exclusiva de Gran Cepo",
     description: "Una distinguida creación artesanal en edición especial de cepo amplio. Presentada en un elegante estuche blanco con detalles plata y oro, elaborada 100% a mano con una selección superior de hojas añejadas.",
     badge: "Nueva Edición",
-    image: "bohio.jpg",
+    image: "bohio.png",
     strength: 4,
     wrapper: "Selección Especial Dominicana",
     binder: "Dominicano",
