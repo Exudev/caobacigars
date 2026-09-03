@@ -26,6 +26,7 @@ parsed.txt
 
 # Backup directory for unused images
 .images/
+public/images/bohio/
 
 # Repository ground rules
 .rules/
