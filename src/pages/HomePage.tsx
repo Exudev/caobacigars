@@ -79,7 +79,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="stat-label">Hecho a Mano</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">11</div>
+          <div className="stat-number">{CIGAR_LINES.length}</div>
           <div className="stat-label">Líneas Exclusivas</div>
         </div>
         <div className="stat-item">
@@ -125,7 +125,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onNavigate("/lineas/");
             }}
           >
-            Ver Todas las 11 Líneas &rarr;
+            Ver Todas las {CIGAR_LINES.length} Líneas &rarr;
           </a>
         </div>
       </section>

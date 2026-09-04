@@ -59,7 +59,7 @@ export const LineasPage: React.FC<LineasPageProps> = ({
           Líneas de Cigarros
         </h1>
         <p className="section-subtitle" style={{ color: "#d0c0b0", maxWidth: "680px", margin: "1rem auto 0", fontSize: "1.05rem" }}>
-          11 ligas únicas elaboradas con las más finas hojas de tabaco seleccionadas de República Dominicana, Ecuador, México y Nicaragua.
+          {CIGAR_LINES.length} ligas únicas elaboradas con las más finas hojas de tabaco seleccionadas de República Dominicana, Ecuador, México y Nicaragua.
         </p>
       </section>
 
