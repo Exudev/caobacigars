@@ -167,7 +167,7 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
             </div>
             <div>
               <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Tripa & Capote:</span>
-              <strong style={{ color: "#fff" }}>{cigar.binderFiller || "Selección de tabacos dominicanos"}</strong>
+              <strong style={{ color: "#fff" }}>{cigar.binderFiller || "Selección de tabacos Dominicanos"}</strong>
             </div>
             <div>
               <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Añejamiento:</span>

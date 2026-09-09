@@ -55,9 +55,22 @@ export const LineasPage: React.FC<LineasPageProps> = ({
         <h1 className="section-title gold-gradient-text" style={{ fontSize: "2.8rem", margin: 0 }}>
           Líneas de Cigarros
         </h1>
-        <p className="section-subtitle" style={{ color: "#d0c0b0", maxWidth: "680px", margin: "1rem auto 0", fontSize: "1.05rem" }}>
-          Ligas únicas elaboradas con las más finas hojas de tabaco cultivados en las mejores vegas de la República Dominicana.
-        </p>
+        {/* Featured Showcase Image */}
+        <div className="cigar-showcase-wrapper">
+          <div className="cigar-showcase-glow" />
+          <div className="cigar-showcase-frame">
+            <div className="cigar-showcase-inner">
+              <img
+                src="/images/caoba-caja-alta-regalia.jpg"
+                alt="Caoba Cigars - Maestría y Arte en la Alta Regalía"
+                className="cigar-showcase-img"
+              />
+              <div className="cigar-showcase-badge">
+                ✦ Maestría y Arte en la Alta Regalía ✦
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "1rem 1.5rem 4rem" }}>

@@ -52,6 +52,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath = "/", onNavigate })
         >
           LÍNEAS DE CIGARROS
         </a>
+        <a
+          href="/contacto/"
+          className={isLinkActive("/contacto/") ? "active" : ""}
+          onClick={(e) => handleLinkClick(e, "/contacto/")}
+        >
+          CONTACTO
+        </a>
       </nav>
     </header>
   );

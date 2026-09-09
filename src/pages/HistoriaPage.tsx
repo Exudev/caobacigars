@@ -32,7 +32,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
           Nuestra Historia y Producción
         </h1>
         <p className="section-subtitle" style={{ color: "#d0c0b0", maxWidth: "680px", margin: "1rem auto 0", fontSize: "1.05rem" }}>
-          Tres décadas dedicadas a la búsqueda de la perfección en cada hoja de tabaco dominicano.
+          Tres décadas dedicadas a la búsqueda de la perfección en cada hoja de tabaco Dominicano.
         </p>
       </section>
 
@@ -44,7 +44,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
               Orígenes de Caoba Cigars
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Caoba Cigars es una empresa familiar de labores de tabaco situada en el corazón de Santo Domingo en la emblemática Plaza Colón. Nace de la pasión por los cigarros de <strong>Don Julio Pérez González</strong>, emigrante de origen español, que contrajo matrimonio con la empresaria dominicana <strong>Doña Alicia Lama Handal</strong>, quien se estableció durante 66 años en República Dominicana e inició en 1992 la producción de los cigarros que hoy dan nombre a nuestra marca.
+              Caoba Cigars es una empresa familiar de labores de tabaco situada en el corazón de Santo Domingo en la emblemática Plaza Colón. Nace de la pasión por los cigarros de <strong>Don Julio Pérez González</strong>, emigrante de origen español, que contrajo matrimonio con la empresaria Dominicana <strong>Doña Alicia Lama Handal</strong>, quien se estableció durante 66 años en República Dominicana e inició en 1992 la producción de los cigarros que hoy dan nombre a nuestra marca.
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
               Don Julio era un enamorado de la madera noble y como tal fue propietario de un taller artesanal de esculturas de caoba en Santo Domingo, lo que le llevó a nombrar nuestra marca. Actualmente, Caoba Cigars se encuentra registrada en República Dominicana, Estados Unidos y la Unión Europea.
@@ -121,10 +121,10 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
               Elaboración 100% Artesanal & de Alta Regalía
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Todo el proceso que sigue nuestra hoja de tabaco desde su cosecha está avalado por más de 30 años de buen hacer en las fértiles vegas de <strong>El Cibao</strong>. El control de calidad en cada uno de los pasos es constante, riguroso y tradicional.
+              Todo el proceso que sigue nuestra hoja de tabaco desde su cosecha está avalado por más de 30 años de buen hacer en las fértiles vegas de <strong>la República Dominicana</strong>. El control de calidad en cada uno de los pasos es constante, riguroso y tradicional.
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Los procesos de secado, escogida de la hoja, despalille, empalme y torcido terminan en un producto de aroma excelso para luego empacarlo con mimo en hermosas cajas de madera de caoba noble.
+              Los procesos de secado, escogida de la hoja, despalille, en puño y torcido terminan en un producto de aroma excelso para luego empacarlo con mimo en hermosas cajas de cedro.
             </p>
           </div>
         </section>
@@ -148,7 +148,10 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
               Como las más exclusivas producciones artesanales del mundo, Caoba mantiene una producción estrictamente limitada. No por falta de demanda, sino porque Caoba no compromete su calidad, manteniéndose fiel a su herencia.
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Contamos con tabacos seleccionados de la cuenca caribeña, Brasil y África. Elaboramos cigarros de tripa Dominicana y Nicaragüense con capote de Habano Ecuador y capas San Andrés (México) o Connecticut. Este grado de precisión solo se logra conservando lotes limitados.
+              Elaboramos nuestros cigarros a partir de diversas semillas, todas cultivadas en la República Dominicana, específicamente en las diferentes Vegas tabaqueras y garantizamos un riguroso control desde el origen.
+            </p>
+            <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
+              Para las capas, utilizamos variedades criollas Dominicanas como la Yamasá, así como hoja mexicana San Andrés, capa Habana y capa Connecticut seleccionadas para ofrecer un perfil de sabor y aroma equilibrados.
             </p>
             <div style={{ marginTop: "2rem" }}>
               <a

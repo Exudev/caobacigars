@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="footer-col">
             <h4>Sobre Caoba</h4>
             <p>
-              Tradición y excelencia artesanal dominicana desde 1992. Elaborados 100% a mano
+              Tradición y excelencia artesanal Dominicana desde 1992. Elaborados 100% a mano
               por experimentados maestros torcedores en la mítica Plaza Colón de la Zona Colonial.
             </p>
           </div>
@@ -52,6 +52,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Historia y Producción
                 </a>
               </li>
+              <li>
+                <a href="/contacto/" onClick={(e) => handleLinkClick(e, "/contacto/")}>
+                  Contacto & Pedidos
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -66,8 +71,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           <div className="footer-col">
             <h4>Contacto & Pagos</h4>
+            <p style={{ marginBottom: "0.5rem" }}>
+              <a
+                href="https://wa.me/18494490857?text=Hola%2C%20tengo%20inter%C3%A9s%20en%20realizar%20un%20pedido%20de%20sus%20tabacos."
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#25D366", textDecoration: "none", fontWeight: 600 }}
+              >
+                💬 WhatsApp: +1 (849) 449-0857
+              </a>
+            </p>
             <p style={{ marginBottom: "0.5rem" }}>📞 +1 (809) 685-6425</p>
-            <p style={{ marginBottom: "1rem" }}>✉️ caobacigars.dr@gmail.com</p>
+            <p style={{ marginBottom: "1rem" }}>
+              <a href="mailto:Info@caobacigars.com" style={{ color: "#d0c0b0", textDecoration: "none" }}>
+                ✉️ Info@caobacigars.com
+              </a>
+            </p>
             <div className="payment-icons">
               <span className="payment-badge">PayPal</span>
               <span className="payment-badge">VISA</span>

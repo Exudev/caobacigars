@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { LineasPage } from "./pages/LineasPage";
 import { HistoriaPage } from "./pages/HistoriaPage";
+import { ContactoPage } from "./pages/ContactoPage";
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<string>(
@@ -30,6 +31,10 @@ export const App: React.FC = () => {
 
     if (cleanPath.includes("historia")) {
       return <HistoriaPage onNavigate={handleNavigate} />;
+    }
+
+    if (cleanPath.includes("contacto") || cleanPath.includes("contact")) {
+      return <ContactoPage onNavigate={handleNavigate} />;
     }
 
     if (cleanPath.includes("lineas")) {

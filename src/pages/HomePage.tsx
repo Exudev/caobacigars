@@ -168,7 +168,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               Nacidos en la emblemática Plaza Colón de la Zona Colonial de Santo Domingo en 1992, Caoba Cigars mantiene viva la herencia tabacalera de Don Julio Pérez González y Doña Alicia Lama Handal.
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem", marginBottom: "2rem" }}>
-              Nuestra Boutique de Fabricación permite contemplar el arte del torcido a mano y el empaque cuidadoso en cajas de madera de caoba noble.
+              Nuestra Boutique de Fabricación permite contemplar el arte del torcido a mano y el empaque cuidadoso en cajas de cedro.
             </p>
             <a
               href="/historia/"

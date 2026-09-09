@@ -333,10 +333,7 @@ cigars.forEach((cigar) => {
             <span style="color: var(--color-gold);">✔</span> Capa: <span style="color: var(--color-text); font-weight: 500;">${meta.wrapper}</span>
           </li>
           <li style="display: flex; align-items: center; gap: 0.6rem; color: var(--color-gold-light); font-size: 0.95rem;">
-            <span style="color: var(--color-gold);">✔</span> Tripa: <span style="color: var(--color-text); font-weight: 500;">${meta.filler || "Dominicana"}</span>
-          </li>
-          <li style="display: flex; align-items: center; gap: 0.6rem; color: var(--color-gold-light); font-size: 0.95rem;">
-            <span style="color: var(--color-gold);">✔</span> Capote: <span style="color: var(--color-text); font-weight: 500;">${meta.binder || "Dominicano"}</span>
+            <span style="color: var(--color-gold);">✔</span> Tripa & Capote: <span style="color: var(--color-text); font-weight: 500;">${meta.binderFiller || "Selección de tabacos Dominicanos"}</span>
           </li>
         </ul>
 
