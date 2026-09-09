@@ -31,7 +31,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           >
             República Dominicana &bull; Desde 1992
           </p>
-          <h1 className="gold-gradient-text">Artesanos en Labores de Tabaco</h1>
+          <h1 className="gold-gradient-text">Artesanos de Labores de Tabaco</h1>
           <p>
             Cigarros de liga exclusiva elaborados 100% a mano por experimentados
             maestros torcedores en el casco histórico de Santo Domingo.
@@ -83,7 +83,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="stat-label">Líneas Exclusivas</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">Cibao</div>
+          <div className="stat-number">Rep. Dom</div>
           <div className="stat-label">Mejores Vegas</div>
         </div>
       </div>

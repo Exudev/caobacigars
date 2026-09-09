@@ -1,4 +1,5 @@
 import React from "react";
+import { CIGAR_LINES } from "../data/cigars";
 
 interface HistoriaPageProps {
   onNavigate: (path: string) => void;
@@ -117,7 +118,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
 
           <div className="text-content">
             <h2 className="gold-gradient-text" style={{ fontSize: "2rem", marginBottom: "1.25rem" }}>
-              Elaboración 100% Artesanal
+              Elaboración 100% Artesanal & de Alta Regalía
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
               Todo el proceso que sigue nuestra hoja de tabaco desde su cosecha está avalado por más de 30 años de buen hacer en las fértiles vegas de <strong>El Cibao</strong>. El control de calidad en cada uno de los pasos es constante, riguroso y tradicional.
@@ -141,7 +142,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
         >
           <div className="text-content">
             <h2 className="gold-gradient-text" style={{ fontSize: "2rem", marginBottom: "1.25rem" }}>
-              Edición y Producción Limitada
+              Edición y Producción Seleccionada
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
               Como las más exclusivas producciones artesanales del mundo, Caoba mantiene una producción estrictamente limitada. No por falta de demanda, sino porque Caoba no compromete su calidad, manteniéndose fiel a su herencia.
@@ -158,7 +159,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
                   onNavigate("/lineas/");
                 }}
               >
-                Descubrir las 11 Líneas &rarr;
+                Descubrir las {CIGAR_LINES.length} Líneas &rarr;
               </a>
             </div>
           </div>

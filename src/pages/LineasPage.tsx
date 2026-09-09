@@ -27,10 +27,7 @@ export const LineasPage: React.FC<LineasPageProps> = ({
 
   const filteredCigars = CIGAR_LINES.filter((cigar) => {
     if (activeCategory === "all") return true;
-    if (activeCategory === "suave") return cigar.strength <= 3;
-    if (activeCategory === "fuerte") return cigar.strength >= 4;
-    if (activeCategory === "reserva") return Boolean(cigar.badge || cigar.featured);
-    return true;
+    return cigar.category === activeCategory;
   });
 
   return (
@@ -53,13 +50,13 @@ export const LineasPage: React.FC<LineasPageProps> = ({
             marginBottom: "0.5rem",
           }}
         >
-          Colección Exclusiva de Puros Dominicos
+          Colección Exclusiva de Puros Dominicanos
         </p>
         <h1 className="section-title gold-gradient-text" style={{ fontSize: "2.8rem", margin: 0 }}>
           Líneas de Cigarros
         </h1>
         <p className="section-subtitle" style={{ color: "#d0c0b0", maxWidth: "680px", margin: "1rem auto 0", fontSize: "1.05rem" }}>
-          {CIGAR_LINES.length} ligas únicas elaboradas con las más finas hojas de tabaco seleccionadas de República Dominicana, Ecuador, México y Nicaragua.
+          Ligas únicas elaboradas con las más finas hojas de tabaco cultivados en las mejores vegas de la República Dominicana.
         </p>
       </section>
 
@@ -86,25 +83,25 @@ export const LineasPage: React.FC<LineasPageProps> = ({
             Todas las Líneas ({CIGAR_LINES.length})
           </button>
           <button
-            onClick={() => setActiveCategory("suave")}
-            className={activeCategory === "suave" ? "btn-primary" : "btn-outline"}
+            onClick={() => setActiveCategory("premium")}
+            className={activeCategory === "premium" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Suave - Media
+            Cigarros Premium
           </button>
           <button
-            onClick={() => setActiveCategory("fuerte")}
-            className={activeCategory === "fuerte" ? "btn-primary" : "btn-outline"}
+            onClick={() => setActiveCategory("seleccion")}
+            className={activeCategory === "seleccion" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Media - Fuerte
+            Cigarros Selección
           </button>
           <button
-            onClick={() => setActiveCategory("reserva")}
-            className={activeCategory === "reserva" ? "btn-primary" : "btn-outline"}
+            onClick={() => setActiveCategory("gran-seleccion")}
+            className={activeCategory === "gran-seleccion" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Edición Reserva & Especiales
+            Gran Selección & Ediciones Limitadas
           </button>
         </div>
 

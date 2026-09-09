@@ -1,7 +1,6 @@
 import React from "react";
 import { CigarLine } from "../types/cigar";
 import { StrengthIndicator } from "./StrengthIndicator";
-import { FlavorBadges } from "./FlavorBadges";
 
 interface CigarCardProps {
   cigar: CigarLine;
@@ -18,12 +17,35 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
 
   return (
     <div className="card glass-card" style={{ display: "flex", flexDirection: "column" }}>
-      {cigar.badge && (
+      {cigar.isLimitedEdition ? (
         <span
           style={{
             position: "absolute",
-            top: "1rem",
-            right: "1rem",
+            top: "0.85rem",
+            right: "0.85rem",
+            background: "linear-gradient(135deg, #f5d77f 0%, #c5a059 60%, #9a7836 100%)",
+            color: "#0a0805",
+            padding: "0.3rem 0.75rem",
+            borderRadius: "20px",
+            fontSize: "0.68rem",
+            fontWeight: 800,
+            letterSpacing: "0.75px",
+            textTransform: "uppercase",
+            boxShadow: "0 2px 10px rgba(197, 160, 89, 0.45), 0 0 0 1px rgba(255, 235, 175, 0.5)",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.3rem",
+            zIndex: 2,
+          }}
+        >
+          <span style={{ fontSize: "0.72rem", color: "#6e4a10" }}>✦</span> Edición Limitada
+        </span>
+      ) : cigar.badge ? (
+        <span
+          style={{
+            position: "absolute",
+            top: "0.85rem",
+            right: "0.85rem",
             background: "var(--gradient-gold)",
             color: "#0f0c08",
             padding: "0.25rem 0.75rem",
@@ -37,7 +59,7 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
         >
           {cigar.badge}
         </span>
-      )}
+      ) : null}
       <div
         style={{
           width: "100%",
@@ -73,13 +95,9 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
           <StrengthIndicator strength={cigar.strength} />
         </div>
 
-        <p style={{ color: "#d0c0b0", fontSize: "0.95rem", lineHeight: 1.5, flex: 1, marginBottom: "1rem" }}>
+        <p style={{ color: "#d0c0b0", fontSize: "0.95rem", lineHeight: 1.5, flex: 1, marginBottom: "1.25rem" }}>
           {cigar.description || cigar.tagline}
         </p>
-
-        <div style={{ marginBottom: "1.25rem" }}>
-          <FlavorBadges notes={cigar.notes} />
-        </div>
 
         <a
           href={`/lineas/${cigar.id}/`}

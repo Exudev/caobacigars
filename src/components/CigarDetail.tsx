@@ -87,7 +87,27 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
         {/* Specifications & Details */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
           <div>
-            {cigar.badge && (
+            {cigar.isLimitedEdition ? (
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #f5d77f 0%, #c5a059 60%, #9a7836 100%)",
+                  color: "#0a0805",
+                  padding: "0.32rem 0.85rem",
+                  borderRadius: "20px",
+                  fontSize: "0.75rem",
+                  fontWeight: 800,
+                  letterSpacing: "0.85px",
+                  textTransform: "uppercase",
+                  boxShadow: "0 2px 12px rgba(197, 160, 89, 0.45), 0 0 0 1px rgba(255, 235, 175, 0.5)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.35rem",
+                  marginBottom: "0.75rem",
+                }}
+              >
+                <span style={{ fontSize: "0.8rem", color: "#6e4a10" }}>✦</span> Edición Limitada
+              </span>
+            ) : cigar.badge ? (
               <span
                 style={{
                   background: "var(--gradient-gold)",
@@ -104,7 +124,7 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
               >
                 {cigar.badge}
               </span>
-            )}
+            ) : null}
             <h1 className="gold-gradient-text" style={{ fontSize: "2.5rem", margin: 0 }}>
               {cigar.name}
             </h1>
@@ -136,25 +156,21 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
               padding: "1.25rem",
               borderRadius: "12px",
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: "1rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              gap: "1.25rem",
               fontSize: "0.95rem",
             }}
           >
             <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem" }}>Capa:</span>
+              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Capa:</span>
               <strong style={{ color: "#fff" }}>{cigar.wrapper}</strong>
             </div>
             <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem" }}>Capote:</span>
-              <strong style={{ color: "#fff" }}>{cigar.binder}</strong>
+              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Tripa & Capote:</span>
+              <strong style={{ color: "#fff" }}>{cigar.binderFiller || "Selección de tabacos dominicanos"}</strong>
             </div>
             <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem" }}>Tripa:</span>
-              <strong style={{ color: "#fff" }}>{cigar.filler}</strong>
-            </div>
-            <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem" }}>Añejamiento:</span>
+              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Añejamiento:</span>
               <strong style={{ color: "var(--color-gold-light)" }}>{cigar.aging}</strong>
             </div>
           </div>

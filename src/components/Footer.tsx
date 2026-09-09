@@ -1,4 +1,5 @@
 import React from "react";
+import { CIGAR_LINES } from "../data/cigars";
 
 interface FooterProps {
   onNavigate?: (path: string) => void;
@@ -43,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a href="/lineas/" onClick={(e) => handleLinkClick(e, "/lineas/")}>
-                  Líneas de Cigarros (11)
+                  Líneas de Cigarros ({CIGAR_LINES.length})
                 </a>
               </li>
               <li>
