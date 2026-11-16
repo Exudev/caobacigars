@@ -1,12 +1,14 @@
 import React from "react";
 import { CIGAR_LINES } from "../data/cigars";
 import { CigarCard } from "../components/CigarCard";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
   const featuredLines = CIGAR_LINES.filter((c) => c.featured);
 
   return (
@@ -29,13 +31,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               fontWeight: 600,
             }}
           >
-            República Dominicana &bull; Desde 1992
+            {t.home.eyebrow}
           </p>
-          <h1 className="gold-gradient-text">Artesanos de Labores de Tabaco</h1>
-          <p>
-            Cigarros de liga exclusiva elaborados 100% a mano por experimentados
-            maestros torcedores en el casco histórico de Santo Domingo.
-          </p>
+          <h1 className="gold-gradient-text">{t.home.title}</h1>
+          <p>{t.home.subtitle}</p>
           <div
             style={{
               display: "flex",
@@ -52,7 +51,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 onNavigate("/lineas/");
               }}
             >
-              Explorar Colección
+              {t.home.exploreBtn}
             </a>
             <a
               href="/historia/"
@@ -62,7 +61,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 onNavigate("/historia/");
               }}
             >
-              Nuestra Historia
+              {t.home.historyBtn}
             </a>
           </div>
         </div>
@@ -72,30 +71,27 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <div className="heritage-stats glass-card">
         <div className="stat-item">
           <div className="stat-number">30+</div>
-          <div className="stat-label">Años de Tradición</div>
+          <div className="stat-label">{t.home.stats.years}</div>
         </div>
         <div className="stat-item">
           <div className="stat-number">100%</div>
-          <div className="stat-label">Hecho a Mano</div>
+          <div className="stat-label">{t.home.stats.handmade}</div>
         </div>
         <div className="stat-item">
           <div className="stat-number">{CIGAR_LINES.length}</div>
-          <div className="stat-label">Líneas Exclusivas</div>
+          <div className="stat-label">{t.home.stats.exclusiveLines}</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">Rep. Dom</div>
-          <div className="stat-label">Mejores Vegas</div>
+          <div className="stat-number">{t.home.stats.bestValleysNum}</div>
+          <div className="stat-label">{t.home.stats.bestValleysLabel}</div>
         </div>
       </div>
 
       {/* Featured Collections Showcase */}
       <section className="collection" style={{ padding: "4rem 1.5rem" }}>
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <h2 className="section-title gold-gradient-text">Colección Emblemática</h2>
-          <p className="section-subtitle">
-            Cada línea posee una personalidad distintiva, resultado de añejamientos
-            prolongados y selecciones de capa de clase mundial.
-          </p>
+          <h2 className="section-title gold-gradient-text">{t.home.featuredTitle}</h2>
+          <p className="section-subtitle">{t.home.featuredSubtitle}</p>
         </div>
 
         <div
@@ -125,7 +121,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               onNavigate("/lineas/");
             }}
           >
-            Ver Todas las {CIGAR_LINES.length} Líneas &rarr;
+            {t.home.viewAllLines(CIGAR_LINES.length)}
           </a>
         </div>
       </section>
@@ -159,16 +155,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 marginBottom: "0.5rem",
               }}
             >
-              Legado & Artesanía
+              {t.home.heritageEyebrow}
             </p>
             <h2 className="gold-gradient-text" style={{ fontSize: "2.2rem", marginBottom: "1.25rem" }}>
-              Tradición en Cada Hoja
+              {t.home.heritageTitle}
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem", marginBottom: "1.25rem" }}>
-              Nacidos en la emblemática Plaza Colón de la Zona Colonial de Santo Domingo en 1992, Caoba Cigars mantiene viva la herencia tabacalera de Don Julio Pérez González y Doña Alicia Lama Handal.
+              {t.home.heritageP1}
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem", marginBottom: "2rem" }}>
-              Nuestra Boutique de Fabricación permite contemplar el arte del torcido a mano y el empaque cuidadoso en cajas de cedro.
+              {t.home.heritageP2}
             </p>
             <a
               href="/historia/"
@@ -178,7 +174,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 onNavigate("/historia/");
               }}
             >
-              Conocer Nuestra Historia Completa
+              {t.home.heritageBtn}
             </a>
           </div>
 
@@ -186,7 +182,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="glass-card" style={{ padding: "1rem", borderRadius: "16px" }}>
               <img
                 src="/images/fundador-tabacalera-caoba.jpg"
-                alt="Fábrica de Caoba Cigars en Santo Domingo"
+                alt={t.home.heritageImgAlt}
                 style={{ width: "100%", maxHeight: "380px", objectFit: "cover", borderRadius: "12px" }}
               />
             </div>

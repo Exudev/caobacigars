@@ -1,11 +1,14 @@
 import React from "react";
 import { CIGAR_LINES } from "../data/cigars";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface HistoriaPageProps {
   onNavigate: (path: string) => void;
 }
 
 export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
+
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
       {/* Page Header Banner */}
@@ -26,13 +29,13 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
             marginBottom: "0.5rem",
           }}
         >
-          Tradición & Meticuloso Saber Hacer
+          {t.history.eyebrow}
         </p>
         <h1 className="section-title gold-gradient-text" style={{ fontSize: "2.8rem", margin: 0 }}>
-          Nuestra Historia y Producción
+          {t.history.title}
         </h1>
         <p className="section-subtitle" style={{ color: "#d0c0b0", maxWidth: "680px", margin: "1rem auto 0", fontSize: "1.05rem" }}>
-          Tres décadas dedicadas a la búsqueda de la perfección en cada hoja de tabaco Dominicano.
+          {t.history.subtitle}
         </p>
       </section>
 
@@ -41,16 +44,22 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
         <section className="split-section" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3rem", alignItems: "center", padding: "3rem 0" }}>
           <div className="text-content">
             <h2 className="gold-gradient-text" style={{ fontSize: "2rem", marginBottom: "1.25rem" }}>
-              Orígenes de Caoba Cigars
+              {t.history.originsTitle}
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Caoba Cigars es una empresa familiar de labores de tabaco situada en el corazón de Santo Domingo en la emblemática Plaza Colón. Nace de la pasión por los cigarros de <strong>Don Julio Pérez González</strong>, emigrante de origen español, que contrajo matrimonio con la empresaria Dominicana <strong>Doña Alicia Lama Handal</strong>, quien se estableció durante 66 años en República Dominicana e inició en 1992 la producción de los cigarros que hoy dan nombre a nuestra marca.
+              {t.history.originsP1_part1}
+              <strong>Don Julio Pérez González</strong>
+              {t.history.originsP1_part2}
+              <strong>Doña Alicia Lama Handal</strong>
+              {t.history.originsP1_part3}
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Don Julio era un enamorado de la madera noble y como tal fue propietario de un taller artesanal de esculturas de caoba en Santo Domingo, lo que le llevó a nombrar nuestra marca. Actualmente, Caoba Cigars se encuentra registrada en República Dominicana, Estados Unidos y la Unión Europea.
+              {t.history.originsP2}
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Inicialmente, Caoba Cigars tenía su sede en Villa Faro (fábrica que aún conservamos). En la actualidad, nuestra <em>Boutique de Fabricación</em> se encuentra en la Zona Colonial, frente a la Catedral Primada de América, donde nuestros clientes contemplan el proceso de producción enteramente manual de nuestros cigarros.
+              {t.history.originsP3_part1}
+              <em>{t.history.originsP3_em}</em>
+              {t.history.originsP3_part2}
             </p>
 
             <div
@@ -71,7 +80,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
                   fontFamily: "'Cinzel', serif",
                 }}
               >
-                Nuestro ADN: “Pasión por la excelencia”.
+                {t.history.dnaQuote}
               </p>
             </div>
           </div>
@@ -80,7 +89,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
             <div className="glass-card" style={{ padding: "1rem", borderRadius: "16px", display: "inline-block" }}>
               <img
                 src="/images/fundador-tabacalera-caoba.jpg"
-                alt="Don Julio Pérez González - Fundador Caoba Cigars"
+                alt={t.history.founderAlt}
                 style={{ width: "100%", maxWidth: "420px", borderRadius: "12px", objectFit: "cover" }}
               />
               <div style={{ marginTop: "1.25rem" }}>
@@ -88,7 +97,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
                   Don Julio Pérez González
                 </h3>
                 <p style={{ color: "#a0a0a0", fontSize: "0.95rem", margin: 0 }}>
-                  Fundador de Caoba Cigars
+                  {t.history.founderRole}
                 </p>
               </div>
             </div>
@@ -110,7 +119,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
             <div className="glass-card" style={{ padding: "1rem", borderRadius: "16px" }}>
               <img
                 src="/images/prod1-1.png"
-                alt="Maestros Torcedores de Caoba Cigars"
+                alt={t.history.craftAlt}
                 style={{ width: "100%", maxHeight: "380px", objectFit: "cover", borderRadius: "12px" }}
               />
             </div>
@@ -118,13 +127,15 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
 
           <div className="text-content">
             <h2 className="gold-gradient-text" style={{ fontSize: "2rem", marginBottom: "1.25rem" }}>
-              Elaboración 100% Artesanal & de Alta Regalía
+              {t.history.craftTitle}
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Todo el proceso que sigue nuestra hoja de tabaco desde su cosecha está avalado por más de 30 años de buen hacer en las fértiles vegas de <strong>la República Dominicana</strong>. El control de calidad en cada uno de los pasos es constante, riguroso y tradicional.
+              {t.history.craftP1_part1}
+              <strong>{t.history.craftP1_strong}</strong>
+              {t.history.craftP1_part2}
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Los procesos de secado, escogida de la hoja, despalille, en puño y torcido terminan en un producto de aroma excelso para luego empacarlo con mimo en hermosas cajas de cedro.
+              {t.history.craftP2}
             </p>
           </div>
         </section>
@@ -142,16 +153,16 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
         >
           <div className="text-content">
             <h2 className="gold-gradient-text" style={{ fontSize: "2rem", marginBottom: "1.25rem" }}>
-              Edición y Producción Seleccionada
+              {t.history.limitedTitle}
             </h2>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Como las más exclusivas producciones artesanales del mundo, Caoba mantiene una producción estrictamente limitada. No por falta de demanda, sino porque Caoba no compromete su calidad, manteniéndose fiel a su herencia.
+              {t.history.limitedP1}
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Elaboramos nuestros cigarros a partir de diversas semillas, todas cultivadas en la República Dominicana, específicamente en las diferentes Vegas tabaqueras y garantizamos un riguroso control desde el origen.
+              {t.history.limitedP2}
             </p>
             <p style={{ color: "#d0c0b0", lineHeight: 1.8, fontSize: "1.05rem" }}>
-              Para las capas, utilizamos variedades criollas Dominicanas como la Yamasá, así como hoja mexicana San Andrés, capa Habana y capa Connecticut seleccionadas para ofrecer un perfil de sabor y aroma equilibrados.
+              {t.history.limitedP3}
             </p>
             <div style={{ marginTop: "2rem" }}>
               <a
@@ -162,7 +173,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
                   onNavigate("/lineas/");
                 }}
               >
-                Descubrir las {CIGAR_LINES.length} Líneas &rarr;
+                {t.history.discoverBtn(CIGAR_LINES.length)}
               </a>
             </div>
           </div>
@@ -171,7 +182,7 @@ export const HistoriaPage: React.FC<HistoriaPageProps> = ({ onNavigate }) => {
             <div className="glass-card" style={{ padding: "1rem", borderRadius: "16px" }}>
               <img
                 src="/images/prod2-1.png"
-                alt="Producción Limitada y Añejamiento Caoba"
+                alt={t.history.limitedAlt}
                 style={{ width: "100%", maxHeight: "380px", objectFit: "cover", borderRadius: "12px" }}
               />
             </div>

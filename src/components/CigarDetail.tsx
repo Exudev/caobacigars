@@ -3,6 +3,7 @@ import { CigarLine } from "../types/cigar";
 import { StrengthIndicator } from "./StrengthIndicator";
 import { FlavorBadges } from "./FlavorBadges";
 import { VitolaTable } from "./VitolaTable";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface CigarDetailProps {
   cigar: CigarLine;
@@ -10,7 +11,9 @@ interface CigarDetailProps {
 }
 
 export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
-  const [activeImage, setActiveImage] = useState(cigar.image);
+  const { t, getLocalizedCigar } = useLanguage();
+  const localized = getLocalizedCigar(cigar);
+  const [activeImage, setActiveImage] = useState(localized.image);
 
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1.5rem" }}>
@@ -20,7 +23,7 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
           className="btn-outline"
           style={{ marginBottom: "2rem", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
         >
-          &larr; Volver a Colecciones
+          {t.cigar.backToCollections}
         </button>
       )}
 
@@ -49,14 +52,14 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
           >
             <img
               src={`/images/${activeImage}`}
-              alt={cigar.name}
+              alt={localized.name}
               style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain", transition: "all 0.3s ease" }}
             />
           </div>
 
-          {cigar.gallery.length > 1 && (
+          {localized.gallery.length > 1 && (
             <div style={{ display: "flex", gap: "0.75rem", overflowX: "auto", paddingBottom: "0.5rem" }}>
-              {cigar.gallery.map((img, idx) => (
+              {localized.gallery.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImage(img)}
@@ -75,7 +78,7 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
                 >
                   <img
                     src={`/images/${img}`}
-                    alt={`${cigar.name} thumbnail ${idx}`}
+                    alt={`${localized.name} thumbnail ${idx}`}
                     style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
                   />
                 </button>
@@ -87,7 +90,7 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
         {/* Specifications & Details */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
           <div>
-            {cigar.isLimitedEdition ? (
+            {localized.isLimitedEdition ? (
               <span
                 style={{
                   background: "linear-gradient(135deg, #f5d77f 0%, #c5a059 60%, #9a7836 100%)",
@@ -105,9 +108,9 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
                   marginBottom: "0.75rem",
                 }}
               >
-                <span style={{ fontSize: "0.8rem", color: "#6e4a10" }}>✦</span> Edición Limitada
+                <span style={{ fontSize: "0.8rem", color: "#6e4a10" }}>✦</span> {t.cigar.limitedEdition}
               </span>
-            ) : cigar.badge ? (
+            ) : localized.badge ? (
               <span
                 style={{
                   background: "var(--gradient-gold)",
@@ -122,31 +125,31 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
                   marginBottom: "0.75rem",
                 }}
               >
-                {cigar.badge}
+                {localized.badge}
               </span>
             ) : null}
             <h1 className="gold-gradient-text" style={{ fontSize: "2.5rem", margin: 0 }}>
-              {cigar.name}
+              {localized.name}
             </h1>
-            {cigar.tagline && (
+            {localized.tagline && (
               <p style={{ color: "var(--color-gold-light)", fontSize: "1.1rem", fontStyle: "italic", marginTop: "0.5rem" }}>
-                "{cigar.tagline}"
+                "{localized.tagline}"
               </p>
             )}
           </div>
 
           <p style={{ color: "#d0c0b0", fontSize: "1.05rem", lineHeight: 1.7, margin: 0 }}>
-            {cigar.description}
+            {localized.description}
           </p>
 
           <div className="glass-card" style={{ padding: "1.25rem", borderRadius: "12px" }}>
             <h4 style={{ color: "var(--color-gold-light)", marginTop: 0, marginBottom: "0.75rem" }}>
-              Perfil de Sabor & Fortaleza
+              {t.cigar.flavorAndStrength}
             </h4>
             <div style={{ marginBottom: "1rem" }}>
-              <StrengthIndicator strength={cigar.strength} label="Fortaleza" />
+              <StrengthIndicator strength={localized.strength} label={t.cigar.strengthLabel} />
             </div>
-            <FlavorBadges notes={cigar.notes} />
+            <FlavorBadges notes={localized.notes} />
           </div>
 
           {/* Technical Specs Grid */}
@@ -162,21 +165,27 @@ export const CigarDetail: React.FC<CigarDetailProps> = ({ cigar, onBack }) => {
             }}
           >
             <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Capa:</span>
-              <strong style={{ color: "#fff" }}>{cigar.wrapper}</strong>
+              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>
+                {t.cigar.wrapperLabel}
+              </span>
+              <strong style={{ color: "#fff" }}>{localized.wrapper}</strong>
             </div>
             <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Tripa & Capote:</span>
-              <strong style={{ color: "#fff" }}>{cigar.binderFiller || "Selección de tabacos Dominicanos"}</strong>
+              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>
+                {t.cigar.binderFillerLabel}
+              </span>
+              <strong style={{ color: "#fff" }}>{localized.binderFiller || t.cigar.defaultBinderFiller}</strong>
             </div>
             <div>
-              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>Añejamiento:</span>
-              <strong style={{ color: "var(--color-gold-light)" }}>{cigar.aging}</strong>
+              <span style={{ color: "#a0a0a0", display: "block", fontSize: "0.85rem", marginBottom: "0.25rem" }}>
+                {t.cigar.agingLabel}
+              </span>
+              <strong style={{ color: "var(--color-gold-light)" }}>{localized.aging}</strong>
             </div>
           </div>
 
           {/* Vitolas Table */}
-          <VitolaTable vitolas={cigar.vitolas} packaging={cigar.packaging} />
+          <VitolaTable vitolas={localized.vitolas} packaging={localized.packaging} />
         </div>
       </div>
     </div>

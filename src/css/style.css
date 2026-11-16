@@ -112,6 +112,52 @@ nav {
   gap: 2.5rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  border-radius: 20px;
+  background: rgba(22, 19, 15, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lang-switcher:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 12px rgba(197, 160, 89, 0.2);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 0.15rem 0.25rem;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.lang-btn:hover {
+  color: var(--color-gold-light);
+}
+
+.lang-btn.active {
+  color: var(--color-gold-light);
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(243, 215, 144, 0.45);
+}
+
+.lang-divider {
+  color: rgba(197, 160, 89, 0.4);
+  font-size: 0.75rem;
+  user-select: none;
 }
 
 nav a {

@@ -5,6 +5,7 @@ import { HomePage } from "./pages/HomePage";
 import { LineasPage } from "./pages/LineasPage";
 import { HistoriaPage } from "./pages/HistoriaPage";
 import { ContactoPage } from "./pages/ContactoPage";
+import { LanguageProvider } from "./i18n/LanguageContext";
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<string>(
@@ -79,11 +80,13 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      <Navbar currentPath={currentPath} onNavigate={handleNavigate} />
-      <div style={{ flex: 1 }}>{renderContent()}</div>
-      <Footer onNavigate={handleNavigate} />
-    </div>
+    <LanguageProvider>
+      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+        <Navbar currentPath={currentPath} onNavigate={handleNavigate} />
+        <div style={{ flex: 1 }}>{renderContent()}</div>
+        <Footer onNavigate={handleNavigate} />
+      </div>
+    </LanguageProvider>
   );
 };
 

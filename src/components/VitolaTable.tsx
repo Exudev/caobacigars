@@ -1,5 +1,6 @@
 import React from "react";
 import { Vitola } from "../types/cigar";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface VitolaTableProps {
   vitolas: Vitola[];
@@ -7,10 +8,12 @@ interface VitolaTableProps {
 }
 
 export const VitolaTable: React.FC<VitolaTableProps> = ({ vitolas, packaging }) => {
+  const { t } = useLanguage();
+
   return (
     <div className="glass-card" style={{ padding: "1.5rem", borderRadius: "12px" }}>
       <h3 className="gold-gradient-text" style={{ marginTop: 0, marginBottom: "1rem" }}>
-        Vitolas y Formatos
+        {t.cigar.vitolasTitle}
       </h3>
 
       <div style={{ overflowX: "auto" }}>
@@ -24,8 +27,8 @@ export const VitolaTable: React.FC<VitolaTableProps> = ({ vitolas, packaging }) 
         >
           <thead>
             <tr style={{ borderBottom: "1px solid var(--border-gold)" }}>
-              <th style={{ padding: "0.75rem", color: "var(--color-gold-light)" }}>Vitola</th>
-              <th style={{ padding: "0.75rem", color: "var(--color-gold-light)" }}>Dimensiones</th>
+              <th style={{ padding: "0.75rem", color: "var(--color-gold-light)" }}>{t.cigar.vitolaCol}</th>
+              <th style={{ padding: "0.75rem", color: "var(--color-gold-light)" }}>{t.cigar.dimensionsCol}</th>
             </tr>
           </thead>
           <tbody>
@@ -56,9 +59,9 @@ export const VitolaTable: React.FC<VitolaTableProps> = ({ vitolas, packaging }) 
           color: "#a0a0a0",
         }}
       >
-        <span>Empaques disponibles:</span>
+        <span>{t.cigar.availablePackaging}</span>
         <span style={{ color: "var(--color-gold-light)", fontWeight: 600 }}>
-          {packaging} cigarros por caja / estuche
+          {t.cigar.cigarsPerBox(packaging)}
         </span>
       </div>
     </div>
