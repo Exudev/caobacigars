@@ -1,6 +1,7 @@
 import React from "react";
 import { CigarLine } from "../types/cigar";
 import { StrengthIndicator } from "./StrengthIndicator";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface CigarCardProps {
   cigar: CigarLine;
@@ -8,16 +9,19 @@ interface CigarCardProps {
 }
 
 export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
+  const { t, getLocalizedCigar } = useLanguage();
+  const localized = getLocalizedCigar(cigar);
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onSelect) {
       e.preventDefault();
-      onSelect(cigar.id);
+      onSelect(localized.id);
     }
   };
 
   return (
     <div className="card glass-card" style={{ display: "flex", flexDirection: "column" }}>
-      {cigar.isLimitedEdition ? (
+      {localized.isLimitedEdition ? (
         <span
           style={{
             position: "absolute",
@@ -38,9 +42,9 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
             zIndex: 2,
           }}
         >
-          <span style={{ fontSize: "0.72rem", color: "#6e4a10" }}>✦</span> Edición Limitada
+          <span style={{ fontSize: "0.72rem", color: "#6e4a10" }}>✦</span> {t.cigar.limitedEdition}
         </span>
-      ) : cigar.badge ? (
+      ) : localized.badge ? (
         <span
           style={{
             position: "absolute",
@@ -57,7 +61,7 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
             zIndex: 2,
           }}
         >
-          {cigar.badge}
+          {localized.badge}
         </span>
       ) : null}
       <div
@@ -74,8 +78,8 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
         }}
       >
         <img
-          src={`/images/${cigar.image}`}
-          alt={cigar.name}
+          src={`/images/${localized.image}`}
+          alt={localized.name}
           style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }}
         />
       </div>
@@ -90,22 +94,22 @@ export const CigarCard: React.FC<CigarCardProps> = ({ cigar, onSelect }) => {
           }}
         >
           <h3 className="gold-gradient-text" style={{ margin: 0, fontSize: "1.35rem" }}>
-            {cigar.name}
+            {localized.name}
           </h3>
-          <StrengthIndicator strength={cigar.strength} />
+          <StrengthIndicator strength={localized.strength} />
         </div>
 
         <p style={{ color: "#d0c0b0", fontSize: "0.95rem", lineHeight: 1.5, flex: 1, marginBottom: "1.25rem" }}>
-          {cigar.description || cigar.tagline}
+          {localized.description || localized.tagline}
         </p>
 
         <a
-          href={`/lineas/${cigar.id}/`}
+          href={`/lineas/${localized.id}/`}
           className="btn-outline"
           onClick={handleClick}
           style={{ width: "100%", textAlign: "center", marginTop: "auto" }}
         >
-          Ver Detalle de Línea &rarr;
+          {t.cigar.viewDetail}
         </a>
       </div>
     </div>

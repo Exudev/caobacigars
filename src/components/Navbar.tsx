@@ -1,4 +1,5 @@
 import React from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface NavbarProps {
   currentPath?: string;
@@ -6,6 +7,8 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPath = "/", onNavigate }) => {
+  const { lang, setLang, t } = useLanguage();
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (onNavigate) {
       e.preventDefault();
@@ -36,29 +39,49 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath = "/", onNavigate })
           className={isLinkActive("/") ? "active" : ""}
           onClick={(e) => handleLinkClick(e, "/")}
         >
-          INICIO
+          {t.nav.home}
         </a>
         <a
           href="/historia/"
           className={isLinkActive("/historia/") ? "active" : ""}
           onClick={(e) => handleLinkClick(e, "/historia/")}
         >
-          HISTORIA Y PRODUCCIÓN
+          {t.nav.history}
         </a>
         <a
           href="/lineas/"
           className={isLinkActive("/lineas/") ? "active" : ""}
           onClick={(e) => handleLinkClick(e, "/lineas/")}
         >
-          LÍNEAS DE CIGARROS
+          {t.nav.lines}
         </a>
         <a
           href="/contacto/"
           className={isLinkActive("/contacto/") ? "active" : ""}
           onClick={(e) => handleLinkClick(e, "/contacto/")}
         >
-          CONTACTO
+          {t.nav.contact}
         </a>
+
+        <div className="lang-switcher" role="group" aria-label="Language selector">
+          <button
+            type="button"
+            className={`lang-btn ${lang === "es" ? "active" : ""}`}
+            onClick={() => setLang("es")}
+            aria-pressed={lang === "es"}
+          >
+            ES
+          </button>
+          <span className="lang-divider">|</span>
+          <button
+            type="button"
+            className={`lang-btn ${lang === "en" ? "active" : ""}`}
+            onClick={() => setLang("en")}
+            aria-pressed={lang === "en"}
+          >
+            EN
+          </button>
+        </div>
       </nav>
     </header>
   );

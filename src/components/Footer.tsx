@@ -1,17 +1,24 @@
 import React from "react";
 import { CIGAR_LINES } from "../data/cigars";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface FooterProps {
   onNavigate?: (path: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (onNavigate) {
       e.preventDefault();
       onNavigate(path);
     }
   };
+
+  const whatsappUrl = `https://wa.me/18494490857?text=${encodeURIComponent(
+    t.contact.defaultWhatsAppMsg
+  )}`;
 
   return (
     <footer id="contact">
@@ -22,58 +29,57 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </a>
         </div>
         <h2 className="gold-gradient-text" style={{ fontSize: "1.6rem", marginBottom: "2.5rem" }}>
-          Santo Domingo &bull; República Dominicana
+          {t.footer.locationHeader}
         </h2>
 
         <div className="footer-columns">
           <div className="footer-col">
-            <h4>Sobre Caoba</h4>
-            <p>
-              Tradición y excelencia artesanal Dominicana desde 1992. Elaborados 100% a mano
-              por experimentados maestros torcedores en la mítica Plaza Colón de la Zona Colonial.
-            </p>
+            <h4>{t.footer.aboutTitle}</h4>
+            <p>{t.footer.aboutText}</p>
           </div>
 
           <div className="footer-col">
-            <h4>Navegación</h4>
+            <h4>{t.footer.navTitle}</h4>
             <ul>
               <li>
                 <a href="/" onClick={(e) => handleLinkClick(e, "/")}>
-                  Inicio
+                  {t.footer.navHome}
                 </a>
               </li>
               <li>
                 <a href="/lineas/" onClick={(e) => handleLinkClick(e, "/lineas/")}>
-                  Líneas de Cigarros ({CIGAR_LINES.length})
+                  {t.footer.navLines(CIGAR_LINES.length)}
                 </a>
               </li>
               <li>
                 <a href="/historia/" onClick={(e) => handleLinkClick(e, "/historia/")}>
-                  Historia y Producción
+                  {t.footer.navHistory}
                 </a>
               </li>
               <li>
                 <a href="/contacto/" onClick={(e) => handleLinkClick(e, "/contacto/")}>
-                  Contacto & Pedidos
+                  {t.footer.navContact}
                 </a>
               </li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4>Boutique & Ubicación</h4>
+            <h4>{t.footer.boutiqueTitle}</h4>
             <p>
-              C/ El Conde #101, Local #9<br />
-              Centro Comercial Colón (Plaza Colón)<br />
-              Zona Colonial, Santo Domingo, R.D.
+              {t.footer.boutiqueLine1}
+              <br />
+              {t.footer.boutiqueLine2}
+              <br />
+              {t.footer.boutiqueLine3}
             </p>
           </div>
 
           <div className="footer-col">
-            <h4>Contacto & Pagos</h4>
+            <h4>{t.footer.contactPaymentsTitle}</h4>
             <p style={{ marginBottom: "0.5rem" }}>
               <a
-                href="https://wa.me/18494490857?text=Hola%2C%20tengo%20inter%C3%A9s%20en%20realizar%20un%20pedido%20de%20sus%20tabacos."
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#25D366", textDecoration: "none", fontWeight: 600 }}
@@ -97,9 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="disclaimer">
-          <p>
-            Los impuestos establecidos por el país de destino son a cargo y responsabilidad exclusiva del comprador. &copy; {new Date().getFullYear()} Caoba Cigars. Todos los derechos reservados.
-          </p>
+          <p>{t.footer.disclaimer(new Date().getFullYear())}</p>
         </div>
       </div>
     </footer>

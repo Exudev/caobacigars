@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CIGAR_LINES } from "../data/cigars";
 import { CigarCard } from "../components/CigarCard";
 import { CigarDetail } from "../components/CigarDetail";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface LineasPageProps {
   selectedCigarId?: string;
@@ -12,6 +13,7 @@ export const LineasPage: React.FC<LineasPageProps> = ({
   selectedCigarId,
   onNavigate,
 }) => {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const selectedCigar = CIGAR_LINES.find((c) => c.id === selectedCigarId);
@@ -50,10 +52,10 @@ export const LineasPage: React.FC<LineasPageProps> = ({
             marginBottom: "0.5rem",
           }}
         >
-          Colección Exclusiva de Puros Dominicanos
+          {t.lines.eyebrow}
         </p>
         <h1 className="section-title gold-gradient-text" style={{ fontSize: "2.8rem", margin: 0 }}>
-          Líneas de Cigarros
+          {t.lines.title}
         </h1>
         {/* Featured Showcase Image */}
         <div className="cigar-showcase-wrapper">
@@ -62,11 +64,11 @@ export const LineasPage: React.FC<LineasPageProps> = ({
             <div className="cigar-showcase-inner">
               <img
                 src="/images/caoba-caja-alta-regalia.jpg"
-                alt="Caoba Cigars - Maestría y Arte en la Alta Regalía"
+                alt={t.lines.showcaseAlt}
                 className="cigar-showcase-img"
               />
               <div className="cigar-showcase-badge">
-                ✦ Maestría y Arte en la Alta Regalía ✦
+                {t.lines.showcaseBadge}
               </div>
             </div>
           </div>
@@ -93,28 +95,28 @@ export const LineasPage: React.FC<LineasPageProps> = ({
             className={activeCategory === "all" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Todas las Líneas ({CIGAR_LINES.length})
+            {t.lines.filterAll(CIGAR_LINES.length)}
           </button>
           <button
             onClick={() => setActiveCategory("premium")}
             className={activeCategory === "premium" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Cigarros Premium
+            {t.lines.filterPremium}
           </button>
           <button
             onClick={() => setActiveCategory("seleccion")}
             className={activeCategory === "seleccion" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Cigarros Selección
+            {t.lines.filterSeleccion}
           </button>
           <button
             onClick={() => setActiveCategory("gran-seleccion")}
             className={activeCategory === "gran-seleccion" ? "btn-primary" : "btn-outline"}
             style={{ padding: "0.5rem 1.25rem", fontSize: "0.88rem" }}
           >
-            Gran Selección & Ediciones Limitadas
+            {t.lines.filterGranSeleccion}
           </button>
         </div>
 
